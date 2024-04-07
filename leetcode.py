@@ -435,10 +435,31 @@
 # ]
 # word = "SEE"
 # print(exist(board, word))  # Output: True
-
+s="((*)))"
 def checkValidString(s):
-    """
-    :type s: str
-    :rtype: bool
-    """
+    open_brackets=0
+    closed_brackets=0
+    star=0
+    i=0
+    for i in range(len(s)):
+        if s[i]=='(':
+            open_brackets+=1
+        elif s[i]==')':
+            closed_brackets+=1
+        elif s[i]=='*':
+            star+=1
+            
+    # print('open_brackets=',open_brackets,"closed_brackets=",closed_brackets,"star=",star)
     
+    if open_brackets==closed_brackets:
+        star=""
+    else:
+        less=min(open_brackets,closed_brackets)
+        if star!=0:
+            star-=1
+            less+=1
+        print('open_brackets=',open_brackets,"closed_brackets=",closed_brackets,"star=",star,"less=",less)
+        
+        
+    
+checkValidString(s)
