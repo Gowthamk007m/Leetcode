@@ -436,3 +436,9 @@
 # word = "SEE"
 # print(exist(board, word))  # Output: True
 
+def checkValidString(self, s):
+    """
+    :type s: str
+    :rtype: bool
+    """
+    
