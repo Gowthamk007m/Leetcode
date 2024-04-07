@@ -435,3 +435,4 @@
 # ]
 # word = "SEE"
 # print(exist(board, word))  # Output: True
+
