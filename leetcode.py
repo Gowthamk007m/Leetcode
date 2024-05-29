@@ -540,10 +540,30 @@
 
 # print(is_leap(years))
 
-num=1234
-k=2
+# num=1234
+# k=2
 
-def removek(num,k):
-    k=0
+# def removek(num,k):
+#     k=0
     
-removek(num,k)
+# removek(num,k)
+
+
+class Solution:
+    def numSteps(self, s):
+        a=int(s,2)
+        i=0
+        
+        while a!=1:
+            if a%2==0:
+                a//=2
+                print(a)
+                i+=1
+            else:
+                a=a+1
+                i+=1
+        return i
+        
+        
+obj1=Solution()
+obj1.numSteps("1111011110000011100000110001011011110010111001010111110001")
