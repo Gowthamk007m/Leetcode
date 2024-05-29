@@ -435,31 +435,115 @@
 # ]
 # word = "SEE"
 # print(exist(board, word))  # Output: True
-s="((*)))"
-def checkValidString(s):
-    open_brackets=0
-    closed_brackets=0
-    star=0
-    i=0
-    for i in range(len(s)):
-        if s[i]=='(':
-            open_brackets+=1
-        elif s[i]==')':
-            closed_brackets+=1
-        elif s[i]=='*':
-            star+=1
+# s="((*)))"
+# def checkValidString(s):
+#     open_brackets=closed_brackets=0
+    
+#     for char in s:
+#         if char == '(':
+#             open_brackets += 1
+#             closed_brackets += 1
+#         elif char == ')':
+#             open_brackets = max(0, open_brackets - 1)
+#             closed_brackets -= 1
+#         elif char == '*':
+#             open_brackets = max(0, open_brackets - 1)
+#             closed_brackets += 1
+        
+#         if closed_brackets < 0:
+#             return False
+
+#     return closed_brackets == 0
+        
+        
+    
+# checkValidString(s)
+
+# tickets = [2,3,5,1]
+# k = 2
+
+# def BuyTicket(ticket,k):
+#     time=0
+    
+#     for i in range(len(ticket)):
+
+#         if ticket[i]>=0:
+#             ticket[i]=ticket[i]-1
+#             time+=1
             
-    # print('open_brackets=',open_brackets,"closed_brackets=",closed_brackets,"star=",star)
+#             if i==k and ticket[i]==0:
+#                 return time
+#     if ticket[k] == 0:
+#         return -1
+            
     
-    if open_brackets==closed_brackets:
-        star=""
-    else:
-        less=min(open_brackets,closed_brackets)
-        if star!=0:
-            star-=1
-            less+=1
-        print('open_brackets=',open_brackets,"closed_brackets=",closed_brackets,"star=",star,"less=",less)
+# BuyTicket(tickets,k)
+
+
+
+# def time_to_buy_ticket(tickets, k):
+#     n = len(tickets)
+#     remainingTickets = tickets.copy()
+#     time = 0
+
+#     while True:
+#         for i in range(n):
+#             if remainingTickets[i] > 0:
+#                 remainingTickets[i] -= 1
+#                 time += 1
+#                 if i == k and remainingTickets[i] == 0:
+#                     return time
+                
+#         # Check if the k-th person has left the line
+#         if remainingTickets[k] == 0:
+#             return time
+
+# tickets = [2, 3, 4, 5]
+# k = 1
+# print(time_to_buy_ticket(tickets, k))  # Output: 4
+
+
+# class Solution:
+#     def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
+#         time=0
+#         ticket=tickets.copy()
+#         n = len(tickets)
+#         while True:    
+#             for i in range(n):
+
+#                 if ticket[i]>=0:
+#                     ticket[i]-=1
+#                     time+=1
+
+#                     if i==k and ticket[i]==0:
+#                         return time
+#             if ticket[k] == 0:
+#                 return time
+
+
+
+# years=2000
+
+# def is_leap(year):
+#     leap = False
+#     if year%4==0 and year%100!=0:
+#         leap=True
         
-        
+#     elif year%100==0 and year%400==0:
+#             leap=True
+            
+#     else:
+#             leap=False
+            
     
-checkValidString(s)
+#     return leap
+
+# print(is_leap(years))
+
+num=1234
+k=2
+
+def removek(num,k):
+    k=0
+    
+removek(num,k)
