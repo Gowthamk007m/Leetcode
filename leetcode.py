@@ -549,21 +549,51 @@
 # removek(num,k)
 
 
+# class Solution:
+#     def numSteps(self, s):
+#         a=int(s,2)
+#         i=0
+        
+#         while a!=1:
+#             if a%2==0:
+#                 a//=2
+#                 print(a)
+#                 i+=1
+#             else:
+#                 a=a+1
+#                 i+=1
+#         return i
+        
+        
+# obj1=Solution()
+# obj1.numSteps("1111011110000011100000110001011011110010111001010111110001")
+
+a="hello"
+
+
+def asc(a):
+    b=0
+    values=[]
+    arrsum=[]
+    for i in range(len(a)):
+        values.append(ord(a[i]))
+    
+    for j in range(len(values)-1):
+        d=values[j]-values[j+1]
+        if d<0:
+            d=d*-1
+            arrsum.append(d)
+        else:
+            arrsum.append(d)
+        
+    for k in range(len(arrsum)):
+        z=sum(arrsum)
+        
+    return z
+    
+
+asc(a)
+
 class Solution:
-    def numSteps(self, s):
-        a=int(s,2)
-        i=0
+    def scoreOfString(self, s: str) -> int:
         
-        while a!=1:
-            if a%2==0:
-                a//=2
-                print(a)
-                i+=1
-            else:
-                a=a+1
-                i+=1
-        return i
-        
-        
-obj1=Solution()
-obj1.numSteps("1111011110000011100000110001011011110010111001010111110001")
