@@ -926,6 +926,6 @@ class Solution:
         '''1.get a char with minimum leg greater than 2.
     2.if s[i].count>2 then we need to take out the first value and skip the second and then take out third. '''
 
-
+asas
 obj=Solution()
 obj.minCost(grid)
