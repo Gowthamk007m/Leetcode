@@ -689,3 +689,32 @@
 
 # item=Solution()
 # item.maxProfit(prices)
+
+prices=[7,1,5,3,6,4]
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        l,r=0,1
+
+        adder=1
+        maxPro=0
+
+        while(r<len(prices)):
+          if prices[l]<prices[r]:
+            while (r+adder<len(prices)):
+              if prices[r]>prices[r+adder]:
+                profit=prices[r]-prices[l]
+                l=r
+                r+=adder
+                print(profit,"val r",prices[r] ,"val l",prices[l])
+                break
+              maxPro+=profit
+              adder+=1
+            
+          else:
+            l=r
+          r+=1
+
+        print(maxPro)
+
+obj=Solution()
+obj.maxProfit(prices)
