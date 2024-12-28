@@ -568,32 +568,52 @@
 # obj1=Solution()
 # obj1.numSteps("1111011110000011100000110001011011110010111001010111110001")
 
-a="hello"
+# a="hello"
 
 
-def asc(a):
-    b=0
-    values=[]
-    arrsum=[]
-    for i in range(len(a)):
-        values.append(ord(a[i]))
+# def asc(a):
+#     b=0
+#     values=[]
+#     arrsum=[]
+#     for i in range(len(a)):
+#         values.append(ord(a[i]))
     
-    for j in range(len(values)-1):
-        d=values[j]-values[j+1]
-        if d<0:
-            d=d*-1
-            arrsum.append(d)
-        else:
-            arrsum.append(d)
+#     for j in range(len(values)-1):
+#         d=values[j]-values[j+1]
+#         if d<0:
+#             d=d*-1
+#             arrsum.append(d)
+#         else:
+#             arrsum.append(d)
         
-    for k in range(len(arrsum)):
-        z=sum(arrsum)
+#     for k in range(len(arrsum)):
+#         z=sum(arrsum)
         
-    return z
+#     return z
     
 
-asc(a)
+# asc(a)
 
-class Solution:
-    def scoreOfString(self, s: str) -> int:
-        
+# from typing import List, Optional 
+
+# # nums = [1,3,5,6]
+# # target = 7
+
+# # class Solution:
+# #     def searchInsert(self, nums: List[int], target: int) -> int:
+# #         for i,j in enumerate(nums):
+# #             if(j==target):
+# #                 return i
+                
+# #             elif target<nums[0]:
+# #                 return 0
+# #             elif target>nums[-1]:
+# #                 return len(nums)-1
+
+# #             elif (nums[i]<target and nums[i+1]>target):
+# #                 return i+1
+
+# # obj=Solution()
+
+# # obj.searchInsert(nums,target)
+
