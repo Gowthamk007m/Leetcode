@@ -657,3 +657,35 @@
             
 
 #         # print(list3)
+
+
+
+# from typing import List
+
+# prices = [7,1,5,3,6,4]
+# class Solution:
+#     def maxProfit(self, prices: List[int]) -> int:
+#       l,r=0,1
+#       max_profit=0
+
+
+#       while(r<len(prices)):
+#         if prices[l]<prices[r]:
+#           max_profit=max(max_profit,prices[r]-prices[l])
+#           print(max_profit)
+
+#         else:
+#           l=r
+#         r+=1
+
+      
+#       if max_profit:
+#         print(max_profit)
+#         return max_profit
+#       else:
+#         print(0)
+#         return 0
+        
+
+# item=Solution()
+# item.maxProfit(prices)
