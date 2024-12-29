@@ -1,3 +1,6 @@
+from typing import List
+
+
 # nums=[2,2,2,2,23,41,3,4,1,4,12,2,3]
 # # k=2
 # # def Remover(nums,k):
@@ -660,7 +663,6 @@
 
 
 
-from typing import List
 
 # prices = [7,1,5,3,6,4]
 # class Solution:
