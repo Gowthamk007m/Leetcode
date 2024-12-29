@@ -705,7 +705,6 @@ class Solution:
                 profit=prices[r]-prices[l]
                 l=r
                 r+=adder
-                print(profit,"val r",prices[r] ,"val l",prices[l])
                 break
               maxPro+=profit
               adder+=1
