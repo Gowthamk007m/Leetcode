@@ -692,18 +692,38 @@ from typing import List
 # item=Solution()
 # item.maxProfit(prices)
 
-prices=[7,1,5,3,6,4,54,4,8,9]
-class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        profit=0
-        for i in range(1,len(prices)):
-          if prices[i]>prices[i-1]:
-            profit+=prices[i]-prices[i-1]
+# prices=[7,1,5,3,6,4,54,4,8,9]
+# class Solution:
+#     def maxProfit(self, prices: List[int]) -> int:
+#         profit=0
+#         for i in range(1,len(prices)):
+#           if prices[i]>prices[i-1]:
+#             profit+=prices[i]-prices[i-1]
 
-        print(profit)
-        return profit
+#         print(profit)
+#         return profit
    
+nums = [6,5,5]
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+      set_val=set(nums)
+      new=list(set_val)
+      print("new=",new)
+      max_val=0
+      for i in range(len(new)):
+        print(max_val,i,new[i],"current max",nums.count(new[i]))
+
+        if nums.count(new[i])>=max_val:
+
+          # print(nums.count(new[i]))
+          max_val=nums.count(nums[i])
+          number=new[i]
+        
+        
+      print(max_val)
+
+
 
 
 obj=Solution()
-obj.maxProfit(prices)
+obj.majorityElement(nums)
