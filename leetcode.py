@@ -692,7 +692,7 @@ from typing import List
 # item=Solution()
 # item.maxProfit(prices)
 
-prices=[7,1,5,3,6,4]
+prices=[7,1,5,3,6,4,54,4,8,9]
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         profit=0
