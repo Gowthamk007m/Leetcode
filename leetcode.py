@@ -704,25 +704,32 @@ from typing import List
 #         return profit
    
 nums = [6,5,5]
+# class Solution:
+#     def majorityElement(self, nums: List[int]) -> int:
+#       set_val=set(nums)
+#       new=list(set_val)
+#       print("new=",new)
+#       max_val=0
+#       for i in range(len(new)):
+#         print(max_val,i,new[i],"current max",nums.count(new[i]))
+
+#         if nums.count(new[i])>=max_val:
+
+#           # print(nums.count(new[i]))
+#           max_val=nums.count(nums[i])
+#           number=new[i]
+        
+        
+#       print(max_val)
+
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
+      n=len(nums)/2
       set_val=set(nums)
-      new=list(set_val)
-      print("new=",new)
-      max_val=0
-      for i in range(len(new)):
-        print(max_val,i,new[i],"current max",nums.count(new[i]))
-
-        if nums.count(new[i])>=max_val:
-
-          # print(nums.count(new[i]))
-          max_val=nums.count(nums[i])
-          number=new[i]
-        
-        
-      print(max_val)
-
-
+      new_li=list(set_val)
+      for i in range(len(new_li)):
+        if nums.count(new_li[i])>=n:
+          print(new_li[i])
 
 
 obj=Solution()
