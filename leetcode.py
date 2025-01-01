@@ -722,15 +722,55 @@ nums = [6,5,5]
         
 #       print(max_val)
 
+# class Solution:
+#     def majorityElement(self, nums: List[int]) -> int:
+#       n=len(nums)/2
+#       set_val=set(nums)
+#       new_li=list(set_val)
+#       for i in range(len(new_li)):
+#         if nums.count(new_li[i])>=n:
+#           print(new_li[i])
+
+
+# obj=Solution()
+# obj.majorityElement(nums)
+
+s = "1011011"
+
 class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
-      n=len(nums)/2
-      set_val=set(nums)
-      new_li=list(set_val)
-      for i in range(len(new_li)):
-        if nums.count(new_li[i])>=n:
-          print(new_li[i])
+    def maxScore(self, s: str) -> int:
+        string=list(s)
+        one=list(string)
+        one.reverse()
+        one_count=0
+        two_count=0
+        score=0
+        two=[]
+        two.append(string[0])
+        one.pop()
+        # print(two,one)
+
+        
+        
+        for i in range(1,len(string)):
+
+          two_count=two.count("0")
+          one_count=one.count("1")
+
+
+          if score<=two_count+one_count:
+            score=two_count+one_count
+
+          # print(score,two,one)
+          
+          if len(one)>1:
+            two.append(string[i])
+            one.pop()
+
+        print(score)
+        return score
+
 
 
 obj=Solution()
-obj.majorityElement(nums)
+obj.maxScore(s)
