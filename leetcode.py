@@ -774,3 +774,6 @@ class Solution:
 
 obj=Solution()
 obj.maxScore(s)
+
+
+
