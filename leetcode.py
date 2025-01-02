@@ -748,21 +748,14 @@ class Solution:
         two=[]
         two.append(string[0])
         one.pop()
-        # print(two,one)
 
-        
-        
         for i in range(1,len(string)):
-
           two_count=two.count("0")
           one_count=one.count("1")
-
 
           if score<=two_count+one_count:
             score=two_count+one_count
 
-          # print(score,two,one)
-          
           if len(one)>1:
             two.append(string[i])
             one.pop()
