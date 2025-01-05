@@ -735,38 +735,51 @@ nums = [6,5,5]
 # obj=Solution()
 # obj.majorityElement(nums)
 
-s = "1011011"
+# s = "1011011"
+
+# class Solution:
+#     def maxScore(self, s: str) -> int:
+#         string=list(s)
+#         one=list(string)
+#         one.reverse()
+#         one_count=0
+#         two_count=0
+#         score=0
+#         two=[]
+#         two.append(string[0])
+#         one.pop()
+
+#         for i in range(1,len(string)):
+#           two_count=two.count("0")
+#           one_count=one.count("1")
+
+#           if score<=two_count+one_count:
+#             score=two_count+one_count
+
+#           if len(one)>1:
+#             two.append(string[i])
+#             one.pop()
+
+#         print(score)
+#         return score
+
+
+
+# obj=Solution()
+# obj.maxScore(s)
+
+
+s = "abc"
+shifts = [[4,3],[1,1],[0,2]]
 
 class Solution:
-    def maxScore(self, s: str) -> int:
-        string=list(s)
-        one=list(string)
-        one.reverse()
-        one_count=0
-        two_count=0
-        score=0
-        two=[]
-        two.append(string[0])
-        one.pop()
-
-        for i in range(1,len(string)):
-          two_count=two.count("0")
-          one_count=one.count("1")
-
-          if score<=two_count+one_count:
-            score=two_count+one_count
-
-          if len(one)>1:
-            two.append(string[i])
-            one.pop()
-
-        print(score)
-        return score
-
+    def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
+        call_back={1:"a",2:"b",3:"c",4:"d",5:"e",6:"f",7:"g",8:"h",9:"i",10:"j",11:"k",12:"l",13:"m",14:"n",15:"o",16:"p",17:"q",18:"r",19:"s",20:"t",21:"u",22:"v",23:"w",24:"x",25:"y",26:"z"}
+        c=call_back[2-1]
+        print(c)
 
 
 obj=Solution()
-obj.maxScore(s)
-
+obj.shiftingLetters(s,shifts)
 
 
