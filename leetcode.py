@@ -769,20 +769,42 @@ nums = [6,5,5]
 # obj.maxScore(s)
 
 
-s = "abc"
-shifts = [[4,3],[1,1],[0,2]]
+# s = "abc"
+# shifts = [[4,3],[1,1],[0,2]]
 
-class Solution:
-    def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
-        call_back={1:"a",2:"b",3:"c",4:"d",5:"e",6:"f",7:"g",8:"h",9:"i",10:"j",11:"k",12:"l",13:"m",14:"n",15:"o",16:"p",17:"q",18:"r",19:"s",20:"t",21:"u",22:"v",23:"w",24:"x",25:"y",26:"z"}
+# class Solution:
+#     def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
+#         call_back={1:"a",2:"b",3:"c",4:"d",5:"e",6:"f",7:"g",8:"h",9:"i",10:"j",11:"k",12:"l",13:"m",14:"n",15:"o",16:"p",17:"q",18:"r",19:"s",20:"t",21:"u",22:"v",23:"w",24:"x",25:"y",26:"z"}
 
-        for i in s:
-            print(i)
+#         for i in s:
+#             print(call_back)
 
         
 
 
+# obj=Solution()
+# obj.shiftingLetters(s,shifts)
+
+strs = ["flower","flow","flight"]
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        l,r=0,0
+        run=list[strs]
+
+        long=strs[0]
+
+        for i in range(len(strs)):
+            for j in range(len(strs[i])):
+                for k in range(len(long)):
+                    if long[i][j]==strs[i][j]:
+                        print(strs[i][j])
+       
+        
+        # while(r<len(strs)):
+        #     if strs[l][r]==strs[l+1][r]:
+        #         print(strs[l][r])
+        #     r+=1
+        # l+=1
+
 obj=Solution()
-obj.shiftingLetters(s,shifts)
-
-
+obj.longestCommonPrefix(strs)
