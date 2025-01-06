@@ -785,26 +785,35 @@ nums = [6,5,5]
 # obj=Solution()
 # obj.shiftingLetters(s,shifts)
 
-strs = ["flower","flow","flight"]
-class Solution:
-    def longestCommonPrefix(self, strs: List[str]) -> str:
-        l,r=0,0
-        run=list[strs]
+# strs = ["flower","flow","flight"]
+# class Solution:
+#     def longestCommonPrefix(self, strs: List[str]) -> str:
+#         l,r=0,0
+#         run=list[strs]
 
-        long=strs[0]
+#         long=strs[0]
 
-        for i in range(len(strs)):
-            for j in range(len(strs[i])):
-                for k in range(len(long)):
-                    if long[i][j]==strs[i][j]:
-                        print(strs[i][j])
+#         for i in range(len(strs)):
+#             for j in range(len(strs[i])):
+#                 for k in range(len(long)):
+#                     if long[i][j]==strs[i][j]:
+#                         print(strs[i][j])
        
         
-        # while(r<len(strs)):
-        #     if strs[l][r]==strs[l+1][r]:
-        #         print(strs[l][r])
-        #     r+=1
-        # l+=1
+#         # while(r<len(strs)):
+#         #     if strs[l][r]==strs[l+1][r]:
+#         #         print(strs[l][r])
+#         #     r+=1
+#         # l+=1
+
+# obj=Solution()
+# obj.longestCommonPrefix(strs)
+
+boxes = [1,3,2,2,2,3,4,3,1]
+class Solution:
+    def minOperations(self, boxes: str) -> List[int]:
+        pass
+
 
 obj=Solution()
-obj.longestCommonPrefix(strs)
+obj.minOperations(boxes)
