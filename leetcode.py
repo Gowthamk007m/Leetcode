@@ -824,7 +824,15 @@ class Solution:
         
         check=list(words[0])
     #check word
-        print(check)
+        pick=list(words[1])
+        # print(check,pick)
+
+        for i in range(len(words)):
+            check=words[i]
+            for j in range(len(words[i])):
+                if words[i+1]:
+                    pick=words[i+1]
+                print(pick[j])
     """1.store word as a array
         2.make """
 
