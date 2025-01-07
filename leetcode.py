@@ -822,7 +822,11 @@ words = ["mass","as","hero","superhero"]
 class Solution:
     def stringMatching(self, words: List[str]) -> List[str]:
         
-        pass
+        check=list(words[0])
+    #check word
+        print(check)
+    """1.store word as a array
+        2.make """
 
 
 obj=Solution()
