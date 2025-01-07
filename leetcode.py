@@ -818,13 +818,11 @@ nums = [6,5,5]
 # obj=Solution()
 # obj.minOperations(boxes)
 
-words = ["mass","as","hero","superhero"]
+words = ["leetcoder","leetcode","od","hamlet","am"]
 class Solution:
     def stringMatching(self, words: List[str]) -> List[str]:
         
-        check=list(words[0])
-    #check word
-        pick=list(words[1])
+        
 
         new=[]
         # print(check,pick)
@@ -836,8 +834,9 @@ class Solution:
                 #     print("yes",words[j])
                 
                 if check!=words[j]:
-                    if check in words[j]: 
+                    if check in words[j] and check not in new: 
                         # print("yes",check,"in",words[j])
+                        
                         new.append(check)
         
         print(new)
