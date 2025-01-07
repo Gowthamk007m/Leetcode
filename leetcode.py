@@ -809,11 +809,21 @@ nums = [6,5,5]
 # obj=Solution()
 # obj.longestCommonPrefix(strs)
 
-boxes = [1,3,2,2,2,3,4,3,1]
+# boxes = [1,3,2,2,2,3,4,3,1]
+# class Solution:
+#     def minOperations(self, boxes: str) -> List[int]:
+#         pass
+
+
+# obj=Solution()
+# obj.minOperations(boxes)
+
+words = ["mass","as","hero","superhero"]
 class Solution:
-    def minOperations(self, boxes: str) -> List[int]:
+    def stringMatching(self, words: List[str]) -> List[str]:
+        
         pass
 
 
 obj=Solution()
-obj.minOperations(boxes)
+obj.stringMatching(words)
