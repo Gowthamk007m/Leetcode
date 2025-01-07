@@ -825,14 +825,22 @@ class Solution:
         check=list(words[0])
     #check word
         pick=list(words[1])
+
+        new=[]
         # print(check,pick)
 
         for i in range(len(words)):
             check=words[i]
-            for j in range(len(words[i])):
-                if words[i+1]:
-                    pick=words[i+1]
-                print(pick[j])
+            for j in range(len(words)):
+                # if words[j] in check:
+                #     print("yes",words[j])
+                
+                if check!=words[j]:
+                    if check in words[j]: 
+                        # print("yes",check,"in",words[j])
+                        new.append(check)
+        
+        print(new)
     """1.store word as a array
         2.make """
 
