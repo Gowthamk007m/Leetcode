@@ -818,24 +818,51 @@ nums = [6,5,5]
 # obj=Solution()
 # obj.minOperations(boxes)
 
-words = ["leetcoder","leetcode","od","hamlet","am"]
-class Solution:
-    def stringMatching(self, words: List[str]) -> List[str]:
-        
-        
+# words = ["leetcoder","leetcode","od","hamlet","am"]
+# class Solution:
+#     def stringMatching(self, words: List[str]) -> List[str]:
 
-        new=[]
+#         new=[]
 
-        for i in range(len(words)):
-            check=words[i]
-            for j in range(len(words)):
+#         for i in range(len(words)):
+#             check=words[i]
+#             for j in range(len(words)):
              
                 
-                if check!=words[j]:
-                    if check in words[j] and check not in new: 
+#                 if check!=words[j]:
+#                     if check in words[j] and check not in new: 
                         
-                        new.append(check)
+#                         new.append(check)
         
-        print(new)
+#         print(new)
+# obj=Solution()
+# obj.stringMatching(words)
+
+
+# words=["pa","papa","ma","mama"]
+
+# class Solution:
+#     def countPrefixSuffixPairs(self, words: List[str]) -> int:
+#         print(words)
+#         for i in range(len(words)):
+#             for j in range(i,len(words)):
+#                 print(words[i])
+
+
+#                 '''1.take the first word and check it with the second one
+#                    2.slice the second word word[j].slice(:len(word[i]))  and  word[j],slice[len(word):-1] '''
+
+
+# obj=Solution()
+# obj.countPrefixSuffixPairs(words)
+
+
+words1=["amazon","apple","facebook","google","leetcode"]
+words2=["e","o"]
+class Solution:
+    def wordSubsets(self, words1: List[str], words2: List[str]) -> List[str]:
+        pass
+
+
 obj=Solution()
-obj.stringMatching(words)
+obj.wordSubsets(words1,words2)
