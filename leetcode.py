@@ -858,6 +858,7 @@ nums = [6,5,5]
 
 
 words1=["amazon","apple","facebook","google","leetcode"]
+
 words2=["e","o"]
 class Solution:
     def wordSubsets(self, words1: List[str], words2: List[str]) -> List[str]:
