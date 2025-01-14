@@ -869,40 +869,49 @@ nums = [6,5,5]
 # obj.wordSubsets(words1,words2)
 
 
-s="ucvbutgkohgbcobqeyqwppbxqoynxeuuzouyvmydfhrprdbuzwqebwuiejoxsxdhbmuaiscalnteocghnlisxxawxgcjloevrdcj"
+# s="ucvbutgkohgbcobqeyqwppbxqoynxeuuzouyvmydfhrprdbuzwqebwuiejoxsxdhbmuaiscalnteocghnlisxxawxgcjloevrdcj"
+# class Solution:
+#     def minimumLength(self, s: str) -> int:
+#         set_of_letter=set(s)
+#         list_of_letter=list(set_of_letter)
+
+#         total=[]
+#         # print(list_of_letter)
+
+#         for i in range(len(list_of_letter)):
+#             current_char_count=s.count(list_of_letter[i])
+#             letter=s[i]
+#             # print(current_char_count)
+#             a=0
+#             if current_char_count>2:
+#                 # print(current_char_count)
+            
+#                 while (current_char_count>2):
+#                     a=current_char_count-2
+#                     current_char_count=-2
+#                 total.append(a)
+#             else:
+#                 total.append(current_char_count)
+
+#             # print(a)
+            
+#         print(sum(total))
+#         return sum(total)
+
+
+#     '''1.get a char with minimum leg greater than 2.
+#     2.if s[i].count>2 then we need to take out the first value and skip the second and then take out third.
+#     3.'''
+
+
+# obj=Solution()
+# obj.minimumLength(s)
+
+A=[1,2,3,4,5]
+B=[2,4,6,8,10]
 class Solution:
-    def minimumLength(self, s: str) -> int:
-        set_of_letter=set(s)
-        list_of_letter=list(set_of_letter)
-
-        total=[]
-        # print(list_of_letter)
-
-        for i in range(len(list_of_letter)):
-            current_char_count=s.count(list_of_letter[i])
-            letter=s[i]
-            # print(current_char_count)
-            a=0
-            if current_char_count>2:
-                # print(current_char_count)
-            
-                while (current_char_count>2):
-                    a=current_char_count-2
-                    current_char_count=-2
-                total.append(a)
-            else:
-                total.append(current_char_count)
-
-            # print(a)
-            
-        print(sum(total))
-        return sum(total)
-
-
-    '''1.get a char with minimum leg greater than 2.
-    2.if s[i].count>2 then we need to take out the first value and skip the second and then take out third.
-    3.'''
-
+    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+        pass
 
 obj=Solution()
-obj.minimumLength(s)
+obj.findThePrefixCommonArray(A,B)
