@@ -876,18 +876,19 @@ class Solution:
         list_of_letter=list(set_of_letter)
 
         total=[]
-        print(list_of_letter)
+        # print(list_of_letter)
 
         for i in range(len(list_of_letter)):
             current_char_count=s.count(list_of_letter[i])
             letter=s[i]
-            print(current_char_count,list_of_letter[i])
+            # print(current_char_count)
             a=0
             if current_char_count>2:
                 # print(current_char_count)
             
                 while (current_char_count>2):
-                    a=current_char_count=-2
+                    a=current_char_count-2
+                    current_char_count=-2
                 total.append(a)
             else:
                 total.append(current_char_count)
