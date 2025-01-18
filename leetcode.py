@@ -918,3 +918,14 @@ class Solution:
 
 obj=Solution()
 obj.findThePrefixCommonArray(A,B)
+
+
+class Solution:
+    def minCost(self, grid: List[List[int]]) -> int:
+        pass
+        '''1.get a char with minimum leg greater than 2.
+    2.if s[i].count>2 then we need to take out the first value and skip the second and then take out third. '''
+
+
+obj=Solution()
+obj.minCost(grid)
