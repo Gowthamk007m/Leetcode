@@ -919,7 +919,7 @@ class Solution:
 obj=Solution()
 obj.findThePrefixCommonArray(A,B)
 
-
+grid=[[1,2,3],[4,5,6],[7,8,9]]
 class Solution:
     def minCost(self, grid: List[List[int]]) -> int:
         pass
