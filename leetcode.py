@@ -923,9 +923,6 @@ grid=[[1,2,3],[4,5,6],[7,8,9]]
 class Solution:
     def minCost(self, grid: List[List[int]]) -> int:
         pass
-        '''1.get a char with minimum leg greater than 2.
-    2.if s[i].count>2 then we need to take out the first value and skip the second and then take out third. '''
 
-asas
 obj=Solution()
 obj.minCost(grid)
