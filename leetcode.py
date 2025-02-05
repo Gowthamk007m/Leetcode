@@ -926,3 +926,13 @@ class Solution:
 
 obj=Solution()
 obj.minCost(grid)
+
+
+s="daabcbaabcbc"
+part="abc"
+class Solution:
+    def removeOccurrences(self, s: str, part: str) -> str:
+        pass
+
+obj=Solution()
+obj.removeOccurrences(s,part)
