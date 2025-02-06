@@ -922,7 +922,13 @@ obj.findThePrefixCommonArray(A,B)
 grid=[[1,2,3],[4,5,6],[7,8,9]]
 class Solution:
     def minCost(self, grid: List[List[int]]) -> int:
-        pass
+        m, n = len(grid), len(grid[0])
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]  # Right, Left, Down, Up
+        cost = [[float('inf')] * n for _ in range(m)]  # Cost matrix
+        cost[0][0] = grid[0][0]  # Start with the first cell's cost
+
+        # Min-Heap (priority queue) stores (current_cost, row, col)
+        heap = [(grid[0][0], 0, 0)]
 
 obj=Solution()
 obj.minCost(grid)
