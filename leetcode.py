@@ -932,7 +932,9 @@ s="daabcbaabcbc"
 part="abc"
 class Solution:
     def removeOccurrences(self, s: str, part: str) -> str:
-        pass
+        while part in s:
+            s = s.replace(part, "", 1)  # Remove only the first occurrence of `part`
+        return s
 
 obj=Solution()
 obj.removeOccurrences(s,part)
