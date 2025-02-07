@@ -936,3 +936,12 @@ class Solution:
 
 obj=Solution()
 obj.removeOccurrences(s,part)
+
+
+s="abc"
+class Solution:
+    def clearDigits(self, s: str) -> str:
+        pass
+
+obj=Solution()
+obj.clearDigits(s)
