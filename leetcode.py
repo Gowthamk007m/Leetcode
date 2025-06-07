@@ -907,48 +907,79 @@ nums = [6,5,5]
 # obj=Solution()
 # obj.minimumLength(s)
 
-A=[1,2,3,4,5]
-B=[2,4,6,8,10]
+# A=[1,2,3,4,5]
+# B=[2,4,6,8,10]
+# class Solution:
+#     def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
+#         pass
+#         '''1.get a char with minimum leg greater than 2.
+#     2.if s[i].count>2 then we need to take out the first value and skip the second and then take out third.
+#     3.'''
+
+# obj=Solution()
+# obj.findThePrefixCommonArray(A,B)
+
+# grid=[[1,2,3],[4,5,6],[7,8,9]]
+# class Solution:
+#     def minCost(self, grid: List[List[int]]) -> int:
+#         m, n = len(grid), len(grid[0])
+#         directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+#         cost = [[float('inf')] * n for _ in range(m)] 
+#         cost[0][0] = grid[0][0]  
+
+#         heap = [(grid[0][0], 0, 0)]
+
+# obj=Solution()
+# obj.minCost(grid)
+
+
+# s="daabcbaabcbc"
+# part="abc"
+# class Solution:
+#     def removeOccurrences(self, s: str, part: str) -> str:
+#         while part in s:
+#             s = s.replace(part, "", 1)  
+#         return s
+
+# obj=Solution()
+# obj.removeOccurrences(s,part)
+
+
+# s="abc"
+# class Solution:
+#     def clearDigits(self, s: str) -> str:
+#         pass
+
+# obj=Solution()
+# obj.clearDigits(s)
+
+
 class Solution:
-    def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
-        pass
-        '''1.get a char with minimum leg greater than 2.
-    2.if s[i].count>2 then we need to take out the first value and skip the second and then take out third.
-    3.'''
+    def clearStars(self, s: str) -> str:
+        new_list=[]
+        convert=""
+      
+
+        for loop_data in s:
+            if loop_data !="*":
+                new_list.append(loop_data)
+            else:
+              
+     
+                new_list.reverse()
+                new_list.remove(min(new_list))
+                new_list.reverse()    
+
+            
+
+        
+
+        joined=convert.join(new_list)
+        print(joined)
+        return joined
+        
+
+
 
 obj=Solution()
-obj.findThePrefixCommonArray(A,B)
-
-grid=[[1,2,3],[4,5,6],[7,8,9]]
-class Solution:
-    def minCost(self, grid: List[List[int]]) -> int:
-        m, n = len(grid), len(grid[0])
-        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-        cost = [[float('inf')] * n for _ in range(m)] 
-        cost[0][0] = grid[0][0]  
-
-        heap = [(grid[0][0], 0, 0)]
-
-obj=Solution()
-obj.minCost(grid)
-
-
-s="daabcbaabcbc"
-part="abc"
-class Solution:
-    def removeOccurrences(self, s: str, part: str) -> str:
-        while part in s:
-            s = s.replace(part, "", 1)  
-        return s
-
-obj=Solution()
-obj.removeOccurrences(s,part)
-
-
-s="abc"
-class Solution:
-    def clearDigits(self, s: str) -> str:
-        pass
-
-obj=Solution()
-obj.clearDigits(s)
+obj.clearStars(val)
