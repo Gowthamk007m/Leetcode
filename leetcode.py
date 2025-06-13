@@ -954,32 +954,55 @@ nums = [6,5,5]
 # obj.clearDigits(s)
 
 
-class Solution:
-    def clearStars(self, s: str) -> str:
-        new_list=[]
-        convert=""
+# class Solution:
+#     def clearStars(self, s: str) -> str:
+#         new_list=[]
+#         convert=""
       
 
-        for loop_data in s:
-            if loop_data !="*":
-                new_list.append(loop_data)
-            else:
+#         for loop_data in s:
+#             if loop_data !="*":
+#                 new_list.append(loop_data)
+#             else:
               
      
-                new_list.reverse()
-                new_list.remove(min(new_list))
-                new_list.reverse()    
+#                 new_list.reverse()
+#                 new_list.remove(min(new_list))
+#                 new_list.reverse()    
 
             
 
         
 
-        joined=convert.join(new_list)
-        print(joined)
-        return joined
+#         joined=convert.join(new_list)
+#         print(joined)
+#         return joined
         
 
 
 
+# obj=Solution()
+# obj.clearStars(val)
+
+# print(chr(11))
+
+
+
+class Solution:
+    def maxAdjacentDistance(self, nums: List[int]) -> int:
+        fl_diff=len(nums)-1
+        curr=0
+        now=0
+        max_di=max(nums[0]-nums[fl_diff],nums[fl_diff]-nums[0])
+        
+        for i in range(len(nums)-1):
+            now=(max(nums[i]-nums[i+1],nums[i+1]-nums[i]))
+            curr=max(curr,now)
+        
+        return max(curr,max_di)
+                
+                
+
 obj=Solution()
-obj.clearStars(val)
+nums=[-1,-9,-8]
+obj.maxAdjacentDistance(nums)
