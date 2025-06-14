@@ -703,7 +703,7 @@ from typing import List
 #         print(profit)
 #         return profit
    
-nums = [6,5,5]
+# nums = [6,5,5]
 # class Solution:
 #     def majorityElement(self, nums: List[int]) -> int:
 #       set_val=set(nums)
@@ -988,21 +988,46 @@ nums = [6,5,5]
 
 
 
-class Solution:
-    def maxAdjacentDistance(self, nums: List[int]) -> int:
-        fl_diff=len(nums)-1
-        curr=0
-        now=0
-        max_di=max(nums[0]-nums[fl_diff],nums[fl_diff]-nums[0])
+# class Solution:
+#     def maxAdjacentDistance(self, nums: List[int]) -> int:
+#         fl_diff=len(nums)-1
+#         curr=0
+#         now=0
+#         max_di=max(nums[0]-nums[fl_diff],nums[fl_diff]-nums[0])
         
-        for i in range(len(nums)-1):
-            now=(max(nums[i]-nums[i+1],nums[i+1]-nums[i]))
-            curr=max(curr,now)
+#         for i in range(len(nums)-1):
+#             now=(max(nums[i]-nums[i+1],nums[i+1]-nums[i]))
+#             curr=max(curr,now)
         
-        return max(curr,max_di)
+#         return max(curr,max_di)
                 
                 
 
+# obj=Solution()
+# nums=[-1,-9,-8]
+# obj.maxAdjacentDistance(nums)
+
+
+num=11891
+
+class Solution:
+    def minMaxDifference(self, num: int) -> int:
+        a=9
+        b=0
+        res = list(map(int, str(num)))
+        num=str(num)
+        smallest=10
+
+        print(smallest)
+
+        for ch in num:
+            smallest=min(int(ch),smallest)
+
+        for smallest in num:
+            num[smallest]
+
+
+        print(ch)
+
 obj=Solution()
-nums=[-1,-9,-8]
-obj.maxAdjacentDistance(nums)
+obj.minMaxDifference(num)
