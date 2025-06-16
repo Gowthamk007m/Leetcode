@@ -1008,38 +1008,32 @@ from typing import List
 # obj.maxAdjacentDistance(nums)
 
 
-num=11891
+num=99999
 
 class Solution:
     def minMaxDifference(self, num: int) -> int:
-        res = list(map(int, str(num)))
-        print(res)
-        name="abc"
-        
-        num=str(num)
-        
-        smallest=10
-        large_value=0
-        count=0
-        # print(smallest)
+        str_num=str(num)
+        max_val=0
+        min_val=0
 
-        for i in num:
-            if not large_value and i!=9:
-                large_value=i
+        for ch in str_num:
+            if ch!="9":
+                max_val=ch
                 break
-            
 
+        max_val=str(max_val)
+        max_val=int(str_num.replace(max_val,"9"))
         
-        
+        for ch in str_num:
+            if ch!="0":
+                min_val=ch
+                break
+
+        min_val=str(min_val)
+        min_val=int(str_num.replace(min_val,"0"))
+        return max_val-min_val
+
             
-            
-        print(num)
-
-
-    
-
-
-        print(ch)
 
 obj=Solution()
 obj.minMaxDifference(num)
