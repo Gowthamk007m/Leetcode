@@ -1012,22 +1012,80 @@ num=11891
 
 class Solution:
     def minMaxDifference(self, num: int) -> int:
-        a=9
-        b=0
         res = list(map(int, str(num)))
+        print(res)
+        name="abc"
+        
         num=str(num)
+        
         smallest=10
+        large_value=0
+        count=0
+        # print(smallest)
 
-        print(smallest)
+        for i in num:
+            if not large_value and i!=9:
+                large_value=i
+                break
+            
 
-        for ch in num:
-            smallest=min(int(ch),smallest)
+        
+        
+            
+            
+        print(num)
 
-        for smallest in num:
-            num[smallest]
+
+    
 
 
         print(ch)
 
 obj=Solution()
 obj.minMaxDifference(num)
+
+
+
+#sigle linked list
+'''
+Struct Node:
+    int data;
+    Node* next;
+
+Node* Head
+    
+void createnewNode(int data){
+    newNode=struct Node(malloc sizeof(struct Node));
+    newNode->data=data;
+    newNode->next=NULL;
+}
+    
+void main(){
+    
+    }
+
+void insertNode(int data){
+    
+    newNode=struct Node(malloc sizeof(struct Node));
+    newNode->data=data;
+    newNode->next=Head;
+    Head=newNode;
+}
+
+'''
+
+'''
+void main(){
+
+int n=0;
+int matrix[n][n];
+
+
+for (i=0;i<n;i++){
+    for (j=0;j<n;j++){
+        scan('%d',&matrix[i][j]);
+    }
+}
+
+}
+'''
