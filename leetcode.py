@@ -1008,35 +1008,35 @@ from typing import List
 # obj.maxAdjacentDistance(nums)
 
 
-num=99999
+# num=99999
 
-class Solution:
-    def minMaxDifference(self, num: int) -> int:
-        str_num=str(num)
-        max_val=0
-        min_val=0
+# class Solution:
+#     def minMaxDifference(self, num: int) -> int:
+#         str_num=str(num)
+#         max_val=0
+#         min_val=0
 
-        for ch in str_num:
-            if ch!="9":
-                max_val=ch
-                break
+#         for ch in str_num:
+#             if ch!="9":
+#                 max_val=ch
+#                 break
 
-        max_val=str(max_val)
-        max_val=int(str_num.replace(max_val,"9"))
+#         max_val=str(max_val)
+#         max_val=int(str_num.replace(max_val,"9"))
         
-        for ch in str_num:
-            if ch!="0":
-                min_val=ch
-                break
+#         for ch in str_num:
+#             if ch!="0":
+#                 min_val=ch
+#                 break
 
-        min_val=str(min_val)
-        min_val=int(str_num.replace(min_val,"0"))
-        return max_val-min_val
+#         min_val=str(min_val)
+#         min_val=int(str_num.replace(min_val,"0"))
+#         return max_val-min_val
 
             
 
-obj=Solution()
-obj.minMaxDifference(num)
+# obj=Solution()
+# obj.minMaxDifference(num)
 
 
 
@@ -1082,4 +1082,54 @@ for (i=0;i<n;i++){
 }
 
 }
+
+
+
+
+linear search
+
+int arr[10]=[2,3,5,2,5,2,4,2,9];
+n=9;
+for (i=0;i<=n:i++):
+    if (i==n){
+        return n
+    }
+    else{
+    return "not found"}
+
+
+
 '''
+
+nums=[4,2,9,8,2,12,7,12,10,5,8,5,5,7,9,2,5,11]
+k=1
+class Solution:
+    def divideArray(self, nums: List[int], k: int) -> List[List[int]]:
+        nums.sort()
+        new_list=[]
+        mid_list=[]
+        i=0
+
+        while(i<len(nums)):
+            mid_list.append(nums[i])
+            mid_list.append(nums[i+1])
+            mid_list.append(nums[i+2])
+
+            i+=3
+            new_list.append(mid_list)
+            mid_list=[]
+            
+        for i in range(len(new_list)):
+
+            if max(new_list[i])-min(new_list[i])>k:
+                return []
+        
+        return new_list
+
+            
+
+
+
+        
+obj=Solution()
+obj.divideArray(nums,k)
