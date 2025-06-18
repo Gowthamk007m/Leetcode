@@ -1102,7 +1102,7 @@ for (i=0;i<=n:i++):
 '''
 
 nums=[4,2,9,8,2,12,7,12,10,5,8,5,5,7,9,2,5,11]
-k=1
+k=14
 class Solution:
     def divideArray(self, nums: List[int], k: int) -> List[List[int]]:
         nums.sort()
@@ -1115,14 +1115,17 @@ class Solution:
             mid_list.append(nums[i+1])
             mid_list.append(nums[i+2])
 
+            if max(mid_list)-min(mid_list)>k:
+                return []
+
             i+=3
             new_list.append(mid_list)
             mid_list=[]
             
-        for i in range(len(new_list)):
+        # for i in range(len(new_list)):
 
-            if max(new_list[i])-min(new_list[i])>k:
-                return []
+        #     if max(new_list[i])-min(new_list[i])>k:
+        #         return []
         
         return new_list
 
