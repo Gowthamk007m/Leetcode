@@ -1101,36 +1101,70 @@ for (i=0;i<=n:i++):
 
 '''
 
-nums=[4,2,9,8,2,12,7,12,10,5,8,5,5,7,9,2,5,11]
-k=1
+# nums=[4,2,9,8,2,12,7,12,10,5,8,5,5,7,9,2,5,11]
+# k=1
+# class Solution:
+#     def divideArray(self, nums: List[int], k: int) -> List[List[int]]:
+#         nums.sort()
+#         new_list=[]
+#         mid_list=[]
+#         i=0
+
+#         while(i<len(nums)):
+#             mid_list.append(nums[i])
+#             mid_list.append(nums[i+1])
+#             mid_list.append(nums[i+2])
+            
+
+#             i+=3
+#             new_list.append(mid_list)
+#             mid_list=[]
+            
+#         for i in range(len(new_list)):
+
+#             if max(new_list[i])-min(new_list[i])>k:
+#                 return []
+        
+#         return new_list
+        
+# obj=Solution()
+# obj.divideArray(nums,k)
+
+# s = "abcdefghij"
+# k = 3
+# fill = "x"
+
+# class Solution:
+#     def divideString(self, s: str, k: int, fill: str) -> List[str]:
+#         s= [i for i in s]
+#         new=[]
+#         temp=[]
+#         for i in range(len(s)):
+#             while (len(temp)<=k -1):
+#                 temp.append(s[i])
+#                 temp.append(s[i])
+        
+#         print(temp)
+
+
+# obj1=Solution()
+# obj1.divideString(s,k,fill)
+
+
 class Solution:
-    def divideArray(self, nums: List[int], k: int) -> List[List[int]]:
-        nums.sort()
-        new_list=[]
-        mid_list=[]
-        i=0
-
-        while(i<len(nums)):
-            mid_list.append(nums[i])
-            mid_list.append(nums[i+1])
-            mid_list.append(nums[i+2])
-            
-
-            i+=3
-            new_list.append(mid_list)
-            mid_list=[]
-            
-        for i in range(len(new_list)):
-
-            if max(new_list[i])-min(new_list[i])>k:
-                return []
+    def possibleStringCount(self, word: str) :
+        pointer=word[0]
+        p_count=0
         
-        return new_list
-
+        for i in word:
+            if pointer==i:
+                p_count+=1
+            else:
+                pointer=i
+        print(p_count)
+                
             
 
-
-
-        
 obj=Solution()
-obj.divideArray(nums,k)
+word = "aaaa"
+obj.possibleStringCount(word)
