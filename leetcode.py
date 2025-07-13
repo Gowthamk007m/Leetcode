@@ -1153,20 +1153,59 @@ for (i=0;i<=n:i++):
 # obj1.divideString(s,k,fill)
 
 
-class Solution:
-    def possibleStringCount(self, word: str) :
-        pointer=word[0]
-        p_count=0
+# class Solution:
+#     def possibleStringCount(self, word: str) :
+#         pointer=word[0]
+#         p_count=0
         
-        for i in word:
-            if pointer==i:
-                p_count+=1
-            else:
-                pointer=i
-        print(p_count)
+#         for i in word:
+#             if pointer==i:
+#                 p_count+=1
+#             else:
+#                 pointer=i
+#         print(p_count)
                 
             
 
+# obj=Solution()
+# word = "aaaa"
+# obj.possibleStringCount(word)
+
+class Solution:
+    def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]):
+        
+        players.sort()
+        trainers.sort()
+        print(players)
+        print(trainers)
+        count_val={}
+        
+        count_main=[]
+        
+        for i in range(len(players)):
+            for j in range(len(trainers)):
+                if players[i]<=trainers[j]:
+                    count_val[trainers[j]]=players[i]
+                    
+                    
+                    if count_val[trainers[j]]:
+                        print("true")
+                    # else:
+                    #     count_val[trainers[j]]=players[i]
+                    
+              
+                    
+        
+                    
+                    
+        
+        data=len(count_val)
+        print(count_val)
+        print(count_main)
+                     
+
 obj=Solution()
-word = "aaaa"
-obj.possibleStringCount(word)
+players = [4,4] #4,7,9
+trainers = [2,4,2,2,3,2,4,2,2,3,2,2,1,1,3,3,1,3,2,3,1,3,3,4,1,2,1,2,3,2,3,4,2,2,3,1,3,4,3,3,4,3,2,2,2,1,4,2,4,4,3,1,1,4,2,1,1,4,2,2,3,4,1,1,1,4,4,1,1,4,4,4,2,3,1,1,3,2,1,2,1,1,3,4,4,2,1,4,2,3,1,3,3,4,1,4,1,4,4,1] # 2,5,8,8
+
+obj.matchPlayersAndTrainers(players,trainers)
