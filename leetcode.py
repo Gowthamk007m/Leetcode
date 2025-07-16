@@ -1173,7 +1173,6 @@ for (i=0;i<=n:i++):
 
 class Solution:
     def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]):
-        
         players.sort()
         trainers.sort()
         print(players)
@@ -1191,6 +1190,7 @@ class Solution:
                     if count_val[trainers[j]]:
                         print("true")
                     # else:
+                    pass
                     #     count_val[trainers[j]]=players[i]
                     
               
