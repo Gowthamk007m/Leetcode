@@ -1193,9 +1193,7 @@ class Solution:
                     pass
                     #     count_val[trainers[j]]=players[i]
                     
-              
-                    
-    
+
         
         data=len(count_val)
         print(count_val)
