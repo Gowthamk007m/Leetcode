@@ -1171,37 +1171,48 @@ for (i=0;i<=n:i++):
 # word = "aaaa"
 # obj.possibleStringCount(word)
 
-class Solution:
-    def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]):
-        players.sort()
-        trainers.sort()
-        print(players)
-        print(trainers)
-        count_val={}
+# class Solution:
+#     def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]):
+#         players.sort()
+#         trainers.sort()
+#         print(players)
+#         print(trainers)
+#         count_val={}
         
-        count_main=[]
+#         count_main=[]
         
-        for i in range(len(players)):
-            for j in range(len(trainers)):
-                if players[i]<=trainers[j]:
-                    count_val[trainers[j]]=players[i]
+#         for i in range(len(players)):
+#             for j in range(len(trainers)):
+#                 if players[i]<=trainers[j]:
+#                     count_val[trainers[j]]=players[i]
                     
                     
-                    if count_val[trainers[j]]:
-                        print("true")
-                    # else:
-                    pass
-                    #     count_val[trainers[j]]=players[i]
+#                     if count_val[trainers[j]]:
+#                         print("true")
+#                     # else:
+#                     pass
+#                     #     count_val[trainers[j]]=players[i]
                     
 
         
-        data=len(count_val)
-        print(count_val)
-        print(count_main)
+#         data=len(count_val)
+#         print(count_val)
+#         print(count_main)
                      
 
-obj=Solution()
-players = [4,4] #4,7,9
-trainers = [2,4,2,2,3,2,4,2,2,3,2,2,1,1,3,3,1,3,2,3,1,3,3,4,1,2,1,2,3,2,3,4,2,2,3,1,3,4,3,3,4,3,2,2,2,1,4,2,4,4,3,1,1,4,2,1,1,4,2,2,3,4,1,1,1,4,4,1,1,4,4,4,2,3,1,1,3,2,1,2,1,1,3,4,4,2,1,4,2,3,1,3,3,4,1,4,1,4,4,1] # 2,5,8,8
+# obj=Solution()
+# players = [4,4] #4,7,9
+# trainers = [2,4,2,2,3,2,4,2,2,3,2,2,1,1,3,3,1,3,2,3,1,3,3,4,1,2,1,2,3,2,3,4,2,2,3,1,3,4,3,3,4,3,2,2,2,1,4,2,4,4,3,1,1,4,2,1,1,4,2,2,3,4,1,1,1,4,4,1,1,4,4,4,2,3,1,1,3,2,1,2,1,1,3,4,4,2,1,4,2,3,1,3,3,4,1,4,1,4,4,1] # 2,5,8,8
 
-obj.matchPlayersAndTrainers(players,trainers)
+# obj.matchPlayersAndTrainers(players,trainers)
+
+
+class Solution:
+    def maximumUniqueSubarray(self, nums: List[int]):
+        seen=set()
+        star
+        pass
+    
+obj=Solution()
+nums=[5,2,1,2,5,2,1,2,5]
+obj.maximumUniqueSubarray(nums)
