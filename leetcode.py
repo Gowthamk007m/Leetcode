@@ -1234,36 +1234,33 @@ for (i=0;i<=n:i++):
 # obj.maximumUniqueSubarray(nums)
 
 class Solution:
-    def countHillValley(self, nums: List[int]) -> int:
-        counter = 0
-
+    def countHillValley(self, nums: List[int]):
+        count = 0
         for i in range(1, len(nums) - 1):
-            # Find left
+            if nums[i] == nums[i - 1]:
+                continue
+            
             left = i - 1
             while left >= 0 and nums[left] == nums[i]:
                 left -= 1
-
-            # Find right
             right = i + 1
             while right < len(nums) and nums[right] == nums[i]:
                 right += 1
-
-            # Skip if left or right out of bounds
+            
             if left < 0 or right >= len(nums):
                 continue
-
-            # Now check for hill or valley
-            if nums[i] > nums[left] and nums[i] > nums[right]:
-                counter += 1  # Hill
-            elif nums[i] < nums[left] and nums[i] < nums[right]:
-                counter += 1  # Valley
-
-        print(counter)
-        return counter
+            
+            
+            if nums[left] < nums[i] > nums[right]:
+                count += 1  
+            elif nums[left] > nums[i] < nums[right]:
+                count += 1  
+        print(count)
+        return count
 
     
 
 obj1=Solution()
-# num=[6,6,5,5,4,1]
-num=[2,4,1,1,6,5]
+num=[6,6,5,5,4,1]
+# num=[2,4,1,1,6,5]
 obj1.countHillValley(num)
