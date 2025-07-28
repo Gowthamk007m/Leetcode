@@ -1233,50 +1233,37 @@ for (i=0;i<=n:i++):
 # nums=[5,2,1,2,5,2,1,2,5]
 # obj.maximumUniqueSubarray(nums)
 
-
 class Solution:
-    def countHillValley(self, nums: List[int]):
-        
-        counter=0
-        left=0
-        right=0
-        
-        for i in range(len(nums)):
-            if i!=0 and i!=len(nums)-1:
-                left=i-1
-                right=i+1
-                
-                print(f'  left={left}   current={i}  right ={right}')
-                print(f'{nums[left]},and,{nums[i]},and,{nums[right]}')
-                    
-                while(nums[i]==nums[left]):
-                    # print("num[i]=",nums[i],i,"   ","num[left]=",nums[left],left)
-                    if left>0:
-                        left-=1
-                    else:
-                        break
-                    
-                    # print(nums[left],nums[i])
-                
-                
-                
-                while(nums[i]==nums[right]):
-                    # print("num[i]=",nums[i],i,"   ","num[right]=",nums[right],right)
-                    if right<len(nums)-1:
-                        right+=1
-                    else:
-                        break
-                    
-                    # print(nums[right],nums[i])
-                
-                
-                
-                # if nums[i]>nums[left] and nums[i]>nums[right]:
-                #     print(nums[i])
-       
+    def countHillValley(self, nums: List[int]) -> int:
+        counter = 0
+
+        for i in range(1, len(nums) - 1):
+            # Find left
+            left = i - 1
+            while left >= 0 and nums[left] == nums[i]:
+                left -= 1
+
+            # Find right
+            right = i + 1
+            while right < len(nums) and nums[right] == nums[i]:
+                right += 1
+
+            # Skip if left or right out of bounds
+            if left < 0 or right >= len(nums):
+                continue
+
+            # Now check for hill or valley
+            if nums[i] > nums[left] and nums[i] > nums[right]:
+                counter += 1  # Hill
+            elif nums[i] < nums[left] and nums[i] < nums[right]:
+                counter += 1  # Valley
+
+        print(counter)
+        return counter
+
     
 
 obj1=Solution()
-num=[6,6,5,5,4,1]
-# num=[2,4,1,1,6,5]
+# num=[6,6,5,5,4,1]
+num=[2,4,1,1,6,5]
 obj1.countHillValley(num)
