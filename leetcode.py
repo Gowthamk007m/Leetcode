@@ -1207,12 +1207,77 @@ for (i=0;i<=n:i++):
 # obj.matchPlayersAndTrainers(players,trainers)
 
 
-class Solution:
-    def maximumUniqueSubarray(self, nums: List[int]):
-        seen=set()
-        star
-        pass
+# class Solution:
+#     def maximumUniqueSubarray(self, nums: List[int]):
+#         seen=set()
+#         curr_sum=0
+#         max_sum=0
+#         start=0
+#         max_score=0
+        
+#         for end in range(len(nums)):
+#             while nums[end] in seen:
+#                 print("end=",seen)
+#                 # print("start=",nums[end])
+                
+#                 seen.remove(nums[start])
+#                 curr_sum-=nums[start]
+#                 start+=1
+#             seen.add(nums[end])
+#             curr_sum+=nums[end]
+#             max_score=max(max_sum,curr_sum)
+        
+#         print(max_score)
     
-obj=Solution()
-nums=[5,2,1,2,5,2,1,2,5]
-obj.maximumUniqueSubarray(nums)
+# obj=Solution()
+# nums=[5,2,1,2,5,2,1,2,5]
+# obj.maximumUniqueSubarray(nums)
+
+
+class Solution:
+    def countHillValley(self, nums: List[int]):
+        
+        counter=0
+        j=1
+        left=0
+        right=0
+        
+        for i in range(len(nums)):
+            if i!=0 and i!=len(nums)-1:
+                left=i-1
+                right=i+1
+                
+                print(f'  left={left}   current={i}  right ={right}')
+                print(f'{nums[left]},and,{nums[i]},and,{nums[right]}')
+                    
+                while(nums[i]==nums[left]):
+                    # print("num[i]=",nums[i],i,"   ","num[left]=",nums[left],left)
+                    if left>0:
+                        left-=1
+                    else:
+                        break
+                    
+                    # print(nums[left],nums[i])
+                
+                
+                
+                while(nums[i]==nums[right]):
+                    # print("num[i]=",nums[i],i,"   ","num[right]=",nums[right],right)
+                    if right<len(nums)-1:
+                        right+=1
+                    else:
+                        break
+                    
+                    # print(nums[right],nums[i])
+                
+                
+                
+                # if nums[i]>nums[left] and nums[i]>nums[right]:
+                #     print(nums[i])
+       
+    
+
+obj1=Solution()
+num=[6,6,5,5,4,1]
+# num=[2,4,1,1,6,5]
+obj1.countHillValley(num)
