@@ -1238,7 +1238,6 @@ class Solution:
     def countHillValley(self, nums: List[int]):
         
         counter=0
-        j=1
         left=0
         right=0
         
