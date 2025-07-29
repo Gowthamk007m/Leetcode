@@ -1233,34 +1233,85 @@ for (i=0;i<=n:i++):
 # nums=[5,2,1,2,5,2,1,2,5]
 # obj.maximumUniqueSubarray(nums)
 
-class Solution:
-    def countHillValley(self, nums: List[int]):
-        count = 0
-        for i in range(1, len(nums) - 1):
-            if nums[i] == nums[i - 1]:
-                continue
+# class Solution:
+#     def countHillValley(self, nums: List[int]):
+#         count = 0
+#         for i in range(1, len(nums) - 1):
+#             if nums[i] == nums[i - 1]:
+#                 continue
             
-            left = i - 1
-            while left >= 0 and nums[left] == nums[i]:
-                left -= 1
-            right = i + 1
-            while right < len(nums) and nums[right] == nums[i]:
-                right += 1
+#             left = i - 1
+#             while left >= 0 and nums[left] == nums[i]:
+#                 left -= 1
+#             right = i + 1
+#             while right < len(nums) and nums[right] == nums[i]:
+#                 right += 1
             
-            if left < 0 or right >= len(nums):
-                continue
+#             if left < 0 or right >= len(nums):
+#                 continue
             
             
-            if nums[left] < nums[i] > nums[right]:
-                count += 1  
-            elif nums[left] > nums[i] < nums[right]:
-                count += 1  
-        print(count)
-        return count
+#             if nums[left] < nums[i] > nums[right]:
+#                 count += 1  
+#             elif nums[left] > nums[i] < nums[right]:
+#                 count += 1  
+#         print(count)
+#         return count
 
     
 
-obj1=Solution()
-num=[6,6,5,5,4,1]
-# num=[2,4,1,1,6,5]
-obj1.countHillValley(num)
+# obj1=Solution()
+# num=[6,6,5,5,4,1]
+# # num=[2,4,1,1,6,5]
+# obj1.countHillValley(num)
+
+class Solution:
+    def maximumGain(self, s: str, x: int, y: int):
+        total=0
+        
+        
+        
+        new_list=list(s)
+        i=0
+        # for i in range(len(new_list)):
+        #     print(new_list[i])
+        #     if new_list[i]=="a":
+        #         if new_list[i+1]=="b":
+        #             print("yes")
+        #             total+=x
+        print(new_list)
+        while(i<len(new_list)-1):
+            
+            
+            if new_list[i]=="a":
+                if new_list[i+1]=="b":
+                    total+=x
+                    print(new_list)
+                    new_list.remove(new_list[i])
+                    new_list.remove(new_list[i+1])
+                    
+                    i=0
+                    
+                    print(new_list)
+                    break
+                    continue
+            if new_list[i]=="b":
+                if new_list[i+1]=="a":
+                    total+=y
+                    del new_list[i]
+                    del new_list[i+1]
+                    i=0
+                    # print(new_list,new_list[i],total)
+                    
+                    continue
+            i+=1
+            
+        print(total)
+            
+            
+    
+obj=Solution()
+s = "cdbcbbaaabab"
+x = 4
+y = 5
+obj.maximumGain(s,x,y)
