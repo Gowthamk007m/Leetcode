@@ -1265,53 +1265,74 @@ for (i=0;i<=n:i++):
 # # num=[2,4,1,1,6,5]
 # obj1.countHillValley(num)
 
-class Solution:
-    def maximumGain(self, s: str, x: int, y: int):
-        total=0
+# class Solution:
+#     def maximumGain(self, s: str, x: int, y: int):
+#         total=0
         
         
         
-        new_list=list(s)
-        i=0
-        # for i in range(len(new_list)):
-        #     print(new_list[i])
-        #     if new_list[i]=="a":
-        #         if new_list[i+1]=="b":
-        #             print("yes")
-        #             total+=x
-        print(new_list)
-        while(i<len(new_list)-1):
+#         new_list=list(s)
+#         i=0
+#         # for i in range(len(new_list)):
+#         #     print(new_list[i])
+#         #     if new_list[i]=="a":
+#         #         if new_list[i+1]=="b":
+#         #             print("yes")
+#         #             total+=x
+#         print(new_list)
+#         while(i<len(new_list)-1):
             
             
-            if new_list[i]=="a":
-                if new_list[i+1]=="b":
-                    total+=x
-                    print(new_list)
-                    new_list.remove(new_list[i])
-                    new_list.remove(new_list[i+1])
+#             if new_list[i]=="a":
+#                 if new_list[i+1]=="b":
+#                     total+=x
+#                     print(new_list)
+#                     new_list.remove(new_list[i])
+#                     new_list.remove(new_list[i+1])
                     
-                    i=0
+#                     i=0
                     
-                    print(new_list)
-                    break
-                    continue
-            if new_list[i]=="b":
-                if new_list[i+1]=="a":
-                    total+=y
-                    del new_list[i]
-                    del new_list[i+1]
-                    i=0
-                    # print(new_list,new_list[i],total)
+#                     print(new_list)
+#                     break
+#                     continue
+#             if new_list[i]=="b":
+#                 if new_list[i+1]=="a":
+#                     total+=y
+#                     del new_list[i]
+#                     del new_list[i+1]
+#                     i=0
+#                     # print(new_list,new_list[i],total)
                     
-                    continue
-            i+=1
+#                     continue
+#             i+=1
             
-        print(total)
+#         print(total)
             
             
     
+# obj=Solution()
+# s = "cdbcbbaaabab"
+# x = 4
+# y = 5
+# obj.maximumGain(s,x,y)
+
+# class Solution:
+#     def generate(self, numRows: int) -> List[List[int]]:
+#         for i in range(numRows):
+#             pass
+    
+
+# obj=Solution()
+# numRows=5
+# obj.generate(numRows)
+
+class Solution:
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        out=[]
+        
+    
+
 obj=Solution()
-s = "cdbcbbaaabab"
-x = 4
-y = 5
-obj.maximumGain(s,x,y)
+nums=[1,1,2]
+obj.permuteUnique(nums)
