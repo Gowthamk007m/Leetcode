@@ -1369,7 +1369,19 @@ for (i=0;i<=n:i++):
 # matrix=[["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
 # obj.maximalSquare(matrix)
 
-matrix=[[1,1,1,1,2],[3,254,23,46,2],[32,3,5]]
+# matrix=[[1,1,1,1,2],[3,254,23,46,2],[32,3,5]]
 
-result=[x for i in matrix for x in i]
-print(result)
+# result=[x for i in matrix for x in i]
+# print(result)
+
+
+class Solution:
+    def countSquares(self, matrix: List[List[int]]) -> int:
+        pass
+        ROW,COLS=len(matrix),len(matrix[0])
+        
+        
+    
+obj=Solution()
+matrix=[[0,1,1,1],[1,1,1,1],[0,1,1,1]]
+obj.countSquares(matrix)
