@@ -1326,13 +1326,33 @@ for (i=0;i<=n:i++):
 # numRows=5
 # obj.generate(numRows)
 
-class Solution:
-    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
-        nums.sort()
-        out=[]
+# class Solution:
+#     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+#         nums.sort()
+#         out=[]
         
     
 
+# obj=Solution()
+# nums=[1,1,2]
+# obj.permuteUnique(nums)
+
+class Solution:
+    def maximalSquare(self, matrix: List[List[str]]) -> int:
+        max_val=0
+        max_val2=0
+        count=0
+        two_count=0
+        
+        for i in range(len(matrix)):
+            for j in range(len(matrix[i])):
+                if i!=0 and j!=0:
+                    if matrix[i][j]=="1":
+                        if matrix[i-1][j]=="1" and matrix[i][j-1]=="1" and matrix[i-1][j-1]=="1":
+                            print("yes",i,j)
+
+
+
 obj=Solution()
-nums=[1,1,2]
-obj.permuteUnique(nums)
+matrix=[["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+obj.maximalSquare(matrix)
