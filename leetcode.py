@@ -1339,20 +1339,34 @@ for (i=0;i<=n:i++):
 
 class Solution:
     def maximalSquare(self, matrix: List[List[str]]) -> int:
-        max_val=0
-        max_val2=0
-        count=0
-        two_count=0
+        ROWS,COLUMS=len(matrix),len(matrix[0])
+        cache={}
         
-        for i in range(len(matrix)):
-            for j in range(len(matrix[i])):
-                if i!=0 and j!=0:
-                    if matrix[i][j]=="1":
-                        if matrix[i-1][j]=="1" and matrix[i][j-1]=="1" and matrix[i-1][j-1]=="1":
-                            print("yes",i,j)
+        def helper(r,c):
+            if r>=ROWS or c>=COLUMS:
+                return 0
+            
+            if (r,c) not in cache:
+                down=helper(r+1,c)
+                right=helper(r,c+1)
+                diag=helper(r+1,c+1)
+
+                cache[(r,c)]=0
+                
+                if matrix[r][c]=="1":
+                    cache[(r,c)]=min(down,right,diag)+1
+                    
+
+            return cache[(r,c)]
+        helper(0,0)
+        print(max(cache.values())**2)
+        return max(cache.values())**2
+        
 
 
 
 obj=Solution()
 matrix=[["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
 obj.maximalSquare(matrix)
+
+matrix=[["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
