@@ -1337,36 +1337,39 @@ for (i=0;i<=n:i++):
 # nums=[1,1,2]
 # obj.permuteUnique(nums)
 
-class Solution:
-    def maximalSquare(self, matrix: List[List[str]]) -> int:
-        ROWS,COLUMS=len(matrix),len(matrix[0])
-        cache={}
+# class Solution:
+#     def maximalSquare(self, matrix: List[List[str]]) -> int:
+#         ROWS,COLUMS=len(matrix),len(matrix[0])
+#         cache={}
         
-        def helper(r,c):
-            if r>=ROWS or c>=COLUMS:
-                return 0
+#         def helper(r,c):
+#             if r>=ROWS or c>=COLUMS:
+#                 return 0
             
-            if (r,c) not in cache:
-                down=helper(r+1,c)
-                right=helper(r,c+1)
-                diag=helper(r+1,c+1)
+#             if (r,c) not in cache:
+#                 down=helper(r+1,c)
+#                 right=helper(r,c+1)
+#                 diag=helper(r+1,c+1)
 
-                cache[(r,c)]=0
+#                 cache[(r,c)]=0
                 
-                if matrix[r][c]=="1":
-                    cache[(r,c)]=min(down,right,diag)+1
+#                 if matrix[r][c]=="1":
+#                     cache[(r,c)]=min(down,right,diag)+1
                     
 
-            return cache[(r,c)]
-        helper(0,0)
-        print(max(cache.values())**2)
-        return max(cache.values())**2
+#             return cache[(r,c)]
+#         helper(0,0)
+#         print(max(cache.values())**2)
+#         return max(cache.values())**2
         
 
 
 
-obj=Solution()
-matrix=[["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
-obj.maximalSquare(matrix)
+# obj=Solution()
+# matrix=[["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+# obj.maximalSquare(matrix)
 
-matrix=[["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+matrix=[[1,1,1,1,2],[3,254,23,46,2],[32,3,5]]
+
+result=[x for i in matrix for x in i]
+print(result)
