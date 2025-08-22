@@ -1375,43 +1375,132 @@ for (i=0;i<=n:i++):
 # print(result)
 
 
-class Solution:
-    def countSquares(self, matrix: List[List[int]]) -> int:
-        pass
-        ROW,COLS=len(matrix),len(matrix[0])
-        cache={}
+# class Solution:
+#     def countSquares(self, matrix: List[List[int]]) -> int:
+#         pass
+#         ROW,COLS=len(matrix),len(matrix[0])
+#         cache={}
         
-        def helper(r,c):
-            if r>=ROW or c>=COLS:
-                return 0
+#         def helper(r,c):
+#             if r>=ROW or c>=COLS:
+#                 return 0
             
-            if (r,c) not in cache:
-                down=helper(r+1,c)
-                right=helper(r,c+1)
-                diag=helper(r+1,c+1)
+#             if (r,c) not in cache:
+#                 down=helper(r+1,c)
+#                 right=helper(r,c+1)
+#                 diag=helper(r+1,c+1)
                 
-                cache[(r,c)]=0
+#                 cache[(r,c)]=0
                 
-                if matrix[r][c]==1:
-                    cache[(r,c)]=min(down,right,diag)+1
+#                 if matrix[r][c]==1:
+#                     cache[(r,c)]=min(down,right,diag)+1
                     
-            return cache[(r,c)]
+#             return cache[(r,c)]
 
-        helper(0,0)
-        new=0
-        for i in cache.values():
-            if i>=1:
-                new+=1
+#         helper(0,0)
+#         new=0
+#         for i in cache.values():
+#             if i>=1:
+#                 new+=1
         
-        print(sum(cache.values()))            
+#         print(sum(cache.values()))            
         
         
         
     
+# obj=Solution()
+# matrix=[
+#   [1,0,1],
+#   [1,1,0],
+#   [1,1,0]
+# ]
+# obj.countSquares(matrix)
+
+
+# cache={(1,1):1,(4,5):2,(3,4):3,(2,3):4,(5,6):1,}
+# a=[x for x in cache.keys()]
+# b=[]
+# c=[]
+
+# for i in range(len(a)):
+#     num=a[i]
+#     b.append(a[i][0])
+#     c.append(a[i][1])
+ 
+        
+# print(a,b,c)
+
+class Solution:
+    def minimumArea(self, grid: List[List[int]]) -> int:
+        ROW,COLS=len(grid),len(grid[0])
+        cache={}
+        
+        for i in range(ROW):
+            for j in range(COLS):
+                if grid[i][j]==1:
+                    cache[i+1,j+1]=1
+                    
+        a=[x for x in cache.keys()]
+        b=[]
+        c=[]
+
+        for i in range(len(a)):
+            num=a[i]
+            b.append(a[i][0])
+            c.append(a[i][1])
+        
+        b=set(b)
+        c=set(c)
+        print(a,b,c)
+        
+        if len(b)==1:
+            b=1
+        else:
+            b=max(b)
+            
+        if len(c)==1:
+            c=1
+        else:
+            c=max(c)
+        
+        # print(c)
+        # print(b,c)
+        d=b*c
+        
+        print(d)
+        return d
+        
+        # d=max(a)
+        # e=min(a)
+        # d=d[0]*d[1]
+        # if len(a)==1:
+        #     # print(1)
+        #     return 1
+        
+   
+        # b=set(b)
+        # c=set(c)
+        
+        # if len(b)==1:
+        #     min_b=1
+        # else:
+        #     min_b=min(b)
+        #     print(min_b)
+        
+        # if len(c)==1:
+        #     max_c=1
+        # else:
+        #     max_c=max(c)
+        #     print(max_c)
+
+        # print(min(d),min(e))
+        
+        # print(min_b,max_c)
+        # return b*c
+        
+        
 obj=Solution()
-matrix=[
-  [1,0,1],
-  [1,1,0],
-  [1,1,0]
-]
-obj.countSquares(matrix)
+# grid =[[0,0,0],[0,0,0],[0,0,0],[1,0,1]]
+grid=[[0,0,0],[0,0,0],[0,0,1],[0,1,0]]
+# grid= [[0,1,0],[1,0,1]]
+obj.minimumArea(grid)
