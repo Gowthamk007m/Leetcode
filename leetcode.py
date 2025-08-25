@@ -1430,77 +1430,115 @@ for (i=0;i<=n:i++):
         
 # print(a,b,c)
 
-class Solution:
-    def minimumArea(self, grid: List[List[int]]) -> int:
-        ROW,COLS=len(grid),len(grid[0])
-        cache={}
+# class Solution:
+#     def minimumArea(self, grid: List[List[int]]) -> int:
+#         ROW,COLS=len(grid),len(grid[0])
+#         cache={}
         
-        for i in range(ROW):
-            for j in range(COLS):
-                if grid[i][j]==1:
-                    cache[i+1,j+1]=1
+#         for i in range(ROW):
+#             for j in range(COLS):
+#                 if grid[i][j]==1:
+#                     # min_row=i
+#                     # max_row=i
+#                     cache[i+1,j+1]=1
                     
-        a=[x for x in cache.keys()]
-        b=[]
-        c=[]
+#         a=[x for x in cache.keys()]
+#         b=[]
+#         c=[]
 
-        for i in range(len(a)):
-            num=a[i]
-            b.append(a[i][0])
-            c.append(a[i][1])
+#         for i in range(len(a)):
+#             num=a[i]
+#             b.append(a[i][0])
+#             c.append(a[i][1])
         
-        b=set(b)
-        c=set(c)
-        print(a,b,c)
+#         b=set(b)
+#         c=set(c)
+#         print(a)
         
-        if len(b)==1:
-            b=1
-        else:
-            b=max(b)
+#         if len(b)==1:
+#             b=1
+#         else:
+#             b=max(b)
             
-        if len(c)==1:
-            c=1
-        else:
-            c=max(c)
+#         if len(c)==1:
+#             c=1
+#         else:
+#             c=max(c)
         
-        # print(c)
-        # print(b,c)
-        d=b*c
+#         # print(c)
+#         # print(b,c)
+#         d=b*c
         
-        print(d)
-        return d
+#         print(d)
+#         return d
         
-        # d=max(a)
-        # e=min(a)
-        # d=d[0]*d[1]
-        # if len(a)==1:
-        #     # print(1)
-        #     return 1
+#         # d=max(a)
+#         # e=min(a)
+#         # d=d[0]*d[1]
+#         # if len(a)==1:
+#         #     # print(1)
+#         #     return 1
         
    
-        # b=set(b)
-        # c=set(c)
+#         # b=set(b)
+#         # c=set(c)
         
-        # if len(b)==1:
-        #     min_b=1
-        # else:
-        #     min_b=min(b)
-        #     print(min_b)
+#         # if len(b)==1:
+#         #     min_b=1
+#         # else:
+#         #     min_b=min(b)
+#         #     print(min_b)
         
-        # if len(c)==1:
-        #     max_c=1
-        # else:
-        #     max_c=max(c)
-        #     print(max_c)
+#         # if len(c)==1:
+#         #     max_c=1
+#         # else:
+#         #     max_c=max(c)
+#         #     print(max_c)
 
-        # print(min(d),min(e))
+#         # print(min(d),min(e))
         
-        # print(min_b,max_c)
-        # return b*c
+#         # print(min_b,max_c)
+#         # return b*c
         
         
+# obj=Solution()
+# # grid =[[0,0,0],[0,0,0],[0,0,0],[1,0,1]]
+# grid=[[0,0,0],[0,0,0],[0,0,1],[0,1,0]]
+# # grid= [[0,1,0],[1,0,1]]
+# obj.minimumArea(grid)
+
+class Solution:
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        ROW,COLS=0,0
+        result=[]
+        r,c=0,0
+        edge=0
+        def down(r,c):
+            if c<=len(mat[0]):
+                result.append(mat[r][c+1])
+                c+=1
+     
+                if r<=len(mat) and c<=len(mat[0]):
+                    
+                    if c>-1:
+                        result.append(mat[r+1][c-1])
+                    elif r<len(mat):
+                        result.append(mat[r+1][c])
+                        r+=1
+                        
+            
+                    
+                        
+
+        
+        if r==0 and c==0:
+            result.append(mat[r][c])
+            down(r,c+1)
+            
+
+        print(result)
+                
+    
 obj=Solution()
-# grid =[[0,0,0],[0,0,0],[0,0,0],[1,0,1]]
-grid=[[0,0,0],[0,0,0],[0,0,1],[0,1,0]]
-# grid= [[0,1,0],[1,0,1]]
-obj.minimumArea(grid)
+mat=[[1,2,3],[4,5,6],[7,8,9]]
+obj.findDiagonalOrder(mat)
