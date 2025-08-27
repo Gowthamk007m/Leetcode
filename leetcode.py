@@ -1507,38 +1507,112 @@ for (i=0;i<=n:i++):
 # # grid= [[0,1,0],[1,0,1]]
 # obj.minimumArea(grid)
 
-class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        ROW,COLS=0,0
-        result=[]
-        r,c=0,0
-        edge=0
-        def down(r,c):
-            if c<=len(mat[0]):
-                result.append(mat[r][c+1])
-                c+=1
+# class Solution:
+#     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+#         ROW,COLS=0,0
+#         result=[]
+#         r,c=0,0
+#         edge=0
+#         def down(r,c):
+#             if c<=len(mat[0]):
+#                 result.append(mat[r][c+1])
+#                 c+=1
      
-                if r<=len(mat) and c<=len(mat[0]):
+#                 if r<=len(mat) and c<=len(mat[0]):
                     
-                    if c>-1:
-                        result.append(mat[r+1][c-1])
-                    elif r<len(mat):
-                        result.append(mat[r+1][c])
-                        r+=1
+#                     if c>-1:
+#                         result.append(mat[r+1][c-1])
+#                     elif r<len(mat):
+#                         result.append(mat[r+1][c])
+#                         r+=1
                         
             
                     
                         
 
         
-        if r==0 and c==0:
-            result.append(mat[r][c])
-            down(r,c+1)
+#         if r==0 and c==0:
+#             result.append(mat[r][c])
+#             down(r,c+1)
             
 
-        print(result)
+#         print(result)
                 
     
+# obj=Solution()
+# mat=[[1,2,3],[4,5,6],[7,8,9]]
+# obj.findDiagonalOrder(mat)
+
+# import math
+# class Solution:
+#     def areaOfMaxDiagonal(self, dimensions: List[List[int]]) -> int:
+#         final_diag = 0
+#         final_area = 0
+
+#         for l, w in dimensions:
+#             diag = math.sqrt(l * l + w * w)
+#             area = l * w
+
+#             if diag > final_diag:
+#                 final_diag = diag
+#                 final_area = area
+#             elif diag == final_diag:
+#                 final_area = max(final_area, area)
+        
+#         print(final_area)
+
+#         return final_area
+
+# obj=Solution()
+# dimensions=[[4,7],[8,9],[5,3],[6,10],[2,9],[3,10],[2,2],[5,8],[5,10],[5,6],[8,9],[10,7],[8,9],[3,7],[2,6],[5,1],[7,4],[1,10],[1,7],[6,9],[3,3],[4,6],[8,2],[10,6],[7,9],[9,2],[1,2],[3,8],[10,2],[4,1],[9,7],[10,3],[6,9],[9,8],[7,7],[5,7],[5,4],[6,5],[1,8],[2,3],[7,10],[3,9],[5,7],[2,4],[5,6],[9,5],[8,8],[8,10],[6,8],[5,1],[10,8],[7,4],[2,1],[2,7],[10,3],[2,5],[7,6],[10,5],[10,9],[5,7],[10,6],[4,3],[10,4],[1,5],[8,9],[3,1],[2,5],[9,10],[6,6],[5,10],[10,2],[6,10],[1,1],[8,6],[1,7],[6,3],[9,3],[1,4],[1,1],[10,4],[7,9],[4,5],[2,8],[7,9],[7,3],[4,9],[2,8],[4,6],[9,1],[8,4],[2,4],[7,8],[3,5],[7,6],[8,6],[4,7],[25,60],[39,52],[16,63],[33,56]]
+# obj.areaOfMaxDiagonal(dimensions)
+
+
+class Solution:
+    def lenOfVDiagonal(self, grid: List[List[int]]) -> int:
+        ROW,COLS=len(grid),len(grid[0])
+        new_list=[]
+        step=0
+        cache={}
+        check={}
+        turn_allowed=True
+        
+        def helper(r,c,step):
+            two_found=False
+            zero_found=False
+            if 0<=r<ROW and 0<=c<COLS:
+                diagonals = [(-1, -1), (-1, +1), (+1, -1), (+1, +1)]
+                for dr,dc in diagonals:
+                    new_r=r+dr
+                    new_c=c+dc
+                    
+                                 
+                                    
+                        
+                # top_left=grid[r-1][c-1]
+                # top_right=grid[r-1][c+1]
+                # down_left=grid[r+1][c-1]
+                # down_right=grid[r+1][c+1]
+                # print(top_left,top_right,down_left,down_right)
+                
+                
+        
+        
+        for i in range(ROW):
+            for j in range(COLS):
+                if grid[i][j]==1:
+                   new_list.append([i,j])
+
+                   
+        for k in range(len(new_list)):
+            # print(new_list[k])
+            r=new_list[k][0]
+            c=new_list[k][1]
+            helper(r,c,step)
+            
+        
+            
+
 obj=Solution()
-mat=[[1,2,3],[4,5,6],[7,8,9]]
-obj.findDiagonalOrder(mat)
+grid=[[2,2,2,2,2],[2,0,2,2,0],[2,0,1,1,0],[1,0,2,2,2],[2,0,0,2,2]]
+obj.lenOfVDiagonal(grid)
