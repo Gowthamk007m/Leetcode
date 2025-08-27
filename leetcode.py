@@ -1573,11 +1573,9 @@ class Solution:
         ROW,COLS=len(grid),len(grid[0])
         new_list=[]
         step=0
-        cache={}
-        check={}
         turn_allowed=True
         
-        def helper(r,c,step):
+        def helper(r,c,step,turn_allowed,):
             two_found=False
             zero_found=False
             if 0<=r<ROW and 0<=c<COLS:
@@ -1586,6 +1584,7 @@ class Solution:
                     new_r=r+dr
                     new_c=c+dc
                     
+                
                                  
                                     
                         
