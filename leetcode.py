@@ -1574,16 +1574,23 @@ class Solution:
         new_list=[]
         step=0
         turn_allowed=True
-        
-        def helper(r,c,step,turn_allowed,):
-            two_found=False
-            zero_found=False
+        cache={}
+                
+        def helper(r,c,direction,turn_allowed):
             if 0<=r<ROW and 0<=c<COLS:
                 diagonals = [(-1, -1), (-1, +1), (+1, -1), (+1, +1)]
                 for dr,dc in diagonals:
-                    new_r=r+dr
-                    new_c=c+dc
+                    print(dr,dc)
                     
+                    print(grid[r+dr][c+dc])   
+                    # new_r=r+dr
+      
+                      # new_c=c+dc
+                    
+                    if 0<r<ROW
+                    if c==0:
+                        # then dont do -c
+                        tr,tl,br,bl=grid[r+1][c+1]
                 
                                  
                                     
@@ -1607,11 +1614,12 @@ class Solution:
             # print(new_list[k])
             r=new_list[k][0]
             c=new_list[k][1]
-            helper(r,c,step)
+            direction=-1,-1
+            helper(r,c,step,direction)
             
         
             
 
 obj=Solution()
-grid=[[2,2,2,2,2],[2,0,2,2,0],[2,0,1,1,0],[1,0,2,2,2],[2,0,0,2,2]]
+grid=[[2,2,2,2,2],[2,0,2,2,0],[2,0,3,3,0],[1,0,2,2,2],[2,0,0,2,2]]
 obj.lenOfVDiagonal(grid)
