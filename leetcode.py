@@ -1568,58 +1568,147 @@ for (i=0;i<=n:i++):
 # obj.areaOfMaxDiagonal(dimensions)
 
 
+# from functools import lru_cache
+
+# class Solution:
+#     def lenOfVDiagonal(self, grid: List[List[int]]) -> int:
+#         ROW, COLS = len(grid), len(grid[0])
+
+#         # 4 diagonal directions (↘, ↙, ↖, ↗) in clockwise order
+#         dirs = [(1, 1), (1, -1), (-1, -1), (-1, 1)]
+
+#         def expected(step: int) -> int:
+#             if step == 0:
+#                 return 1
+#             return 2 if step % 2 == 1 else 0
+
+#         @lru_cache(None)
+#         def dfs(r: int, c: int, step: int, d: int, turn_allowed: int) -> int:
+#             # bounds check
+#             if not (0 <= r < ROW and 0 <= c < COLS):
+#                 return 0
+
+#             # value must match expected sequence
+#             if grid[r][c] != expected(step):
+#                 return 0
+
+#             best = 1  # at least this cell counts
+
+#             # continue in the same direction
+#             dr, dc = dirs[d]
+#             best = max(best, 1 + dfs(r + dr, c + dc, step + 1, d, turn_allowed))
+
+#             # take one clockwise turn if allowed
+#             if turn_allowed:
+#                 new_d = (d + 1) % 4
+#                 dr, dc = dirs[new_d]
+#                 best = max(best, 1 + dfs(r + dr, c + dc, step + 1, new_d, 0))
+
+#             return best
+
+#         ans = 0
+#         for r in range(ROW):
+#             for c in range(COLS):
+#                 if grid[r][c] == 1:
+#                     # try starting in all 4 directions
+#                     for d in range(4):
+#                         ans = max(ans, dfs(r, c, 0, d, 1))
+#         print(ans)
+#         return ans
+
+
+# obj=Solution()
+# grid=[[2,2,2,2,2],[2,0,2,2,0],[2,0,1,1,0],[1,0,2,2,2],[2,0,0,2,2]]
+# obj.lenOfVDiagonal(grid)
+
+
 class Solution:
-    def lenOfVDiagonal(self, grid: List[List[int]]) -> int:
-        ROW,COLS=len(grid),len(grid[0])
-        new_list=[]
-        step=0
-        turn_allowed=True
-        cache={}
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        check=[]
+        down=[]
+        out=True
+        k=0
+        
+        rc_check=[]
+        
+        def Center(r,c):
+            dr=[[-1,-1],[-1,0],[-1,+1],[0,+1],[+1,+1],[+1,0],[+1,-1],[0,-1]]
+            for l,m in dr:
+                if board[r+l][c+m]!='.':
+                    if board[r+l][c+m] not in rc_check:
+                        rc_check.append(board[r+l][c+m])
+                    else:
+                        print("twice",board[r+l][c+m],"r,c",r,c)
+                        out=False
+                        return out
+           
+        
+        for i in range(len(board)):          
+            for j in range(9):
+                if board[i][j]!=".":
+                    if board[i][j] not in check:
+                        check.append(board[i][j])
+                    else:
+                        print(board[j][i])
+                        out=False
+                        return out
                 
-        def helper(r,c,direction,turn_allowed):
-            if 0<=r<ROW and 0<=c<COLS:
-                diagonals = [(-1, -1), (-1, +1), (+1, -1), (+1, +1)]
-                for dr,dc in diagonals:
-                    print(dr,dc)
+                if board[j][i]!=".":
+                    if board[j][i] not in down:
+                        down.append(board[j][i])
+                    else:
+                        print(board[j][i])
+                        out=False
+                        return out
                     
-                    print(grid[r+dr][c+dc])   
-                    # new_r=r+dr
-      
-                      # new_c=c+dc
+                d=[[1,1],[1,4],[1,7],
+                    [4,1],[4,4],[4,7],
+                    [7,1],[7,4],[7,7]]   
                     
-                    if 0<r<ROW
-                    if c==0:
-                        # then dont do -c
-                        tr,tl,br,bl=grid[r+1][c+1]
-                
-                                 
-                                    
+                if k<len(d):            
+                    if d[k]==[i,j]:
+                        print(Center(i,j))
+                        if Center(i,j):    
+                            k+=1
+                            rc_check=[]
                         
-                # top_left=grid[r-1][c-1]
-                # top_right=grid[r-1][c+1]
-                # down_left=grid[r+1][c-1]
-                # down_right=grid[r+1][c+1]
-                # print(top_left,top_right,down_left,down_right)
                 
-                
-        
-        
-        for i in range(ROW):
-            for j in range(COLS):
-                if grid[i][j]==1:
-                   new_list.append([i,j])
-
-                   
-        for k in range(len(new_list)):
-            # print(new_list[k])
-            r=new_list[k][0]
-            c=new_list[k][1]
-            direction=-1,-1
-            helper(r,c,step,direction)
+                    
             
-        
+            check=[]
+            down=[]
             
-
+        print(out)
+        return out
 obj=Solution()
-grid=[[2,2,2,2,2],[2,0,2,2,0],[2,0,3,3,0],[1,0,2,2,2],[2,0,0,2,2]]
-obj.lenOfVDiagonal(grid)
+# board =[["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]
+
+# board=[[".",".",".",".","5",".",".","1","."],
+#        [".","4",".","3",".",".",".",".","."],
+#        [".",".",".",".",".","3",".",".","1"],
+#        ["8",".",".",".",".",".",".","2","."],
+#        [".",".","2",".","7",".",".",".","."],
+#        [".","1","5",".",".",".",".",".","."],
+#        [".",".",".",".",".","2",".",".","."],
+#        [".","2",".","9",".",".",".",".","."],
+#        [".",".","4",".",".",".",".",".","."]]
+board=[[".",".","4",".",".",".","6","3","."],
+       [".",".",".",".",".",".",".",".","."],
+       ["5",".",".",".",".",".",".","9","."],
+       [".",".",".","5","6",".",".",".","."],
+       ["4",".","3",".",".",".",".",".","1"],
+       [".",".",".","7",".",".",".",".","."],
+       [".",".",".","5",".",".",".",".","."],
+       [".",".",".",".",".",".",".",".","."],
+       [".",".",".",".",".",".",".",".","."]]
+
+# board=[["5","3",".",".","7",".",".",".","."],
+#        ["6",".",".","1","9","5",".",".","."],
+#        [".","9","8",".",".",".",".","6","."],
+#        ["8",".",".",".","6",".",".",".","3"],
+#        ["4",".",".","8",".","3",".",".","1"],
+#        ["7",".",".",".","2",".",".",".","6"],
+#        [".","6",".",".",".",".","2","8","."],
+#        [".",".",".","4","1","9",".",".","5"],
+#        [".",".",".",".","8",".",".","7","9"]]
+obj.isValidSudoku(board)
