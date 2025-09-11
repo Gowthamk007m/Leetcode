@@ -1622,69 +1622,69 @@ for (i=0;i<=n:i++):
 # obj.lenOfVDiagonal(grid)
 
 
-class Solution:
-    def isValidSudoku(self, board: List[List[str]]) -> bool:
-        check=[]
-        down=[]
-        out=True
-        k=0
+# class Solution:
+#     def isValidSudoku(self, board: List[List[str]]) -> bool:
+#         check=[]
+#         down=[]
+#         out=True
+#         k=0
         
-        rc_check=[]
+#         rc_check=[]
         
-        def Center(r,c):
-            dr=[[-1,-1],[-1,0],[-1,+1],[0,+1],[+1,+1],[+1,0],[+1,-1],[0,-1],[0,0]]
+#         def Center(r,c):
+#             dr=[[-1,-1],[-1,0],[-1,+1],[0,+1],[+1,+1],[+1,0],[+1,-1],[0,-1],[0,0]]
             
-            for l,m in dr:
-                if board[r+l][c+m]!='.':
-                    if board[r+l][c+m] not in rc_check:
-                        rc_check.append(board[r+l][c+m])
-                    else:
-                        print("twice",board[r+l][c+m],"r,c",r,c)
-                        return False
-            return True
+#             for l,m in dr:
+#                 if board[r+l][c+m]!='.':
+#                     if board[r+l][c+m] not in rc_check:
+#                         rc_check.append(board[r+l][c+m])
+#                     else:
+#                         print("twice",board[r+l][c+m],"r,c",r,c)
+#                         return False
+#             return True
                    
            
         
-        for i in range(len(board)):          
-            for j in range(9):
-                if board[i][j]!=".":
-                    if board[i][j] not in check:
-                        check.append(board[i][j])
-                    else:
-                        print(board[j][i])
-                        out=False
-                        return out
+#         for i in range(len(board)):          
+#             for j in range(9):
+#                 if board[i][j]!=".":
+#                     if board[i][j] not in check:
+#                         check.append(board[i][j])
+#                     else:
+#                         print(board[j][i])
+#                         out=False
+#                         return out
                 
-                if board[j][i]!=".":
-                    if board[j][i] not in down:
-                        down.append(board[j][i])
-                    else:
-                        print(board[j][i])
-                        out=False
-                        return out
+#                 if board[j][i]!=".":
+#                     if board[j][i] not in down:
+#                         down.append(board[j][i])
+#                     else:
+#                         print(board[j][i])
+#                         out=False
+#                         return out
                     
-                d=[[1,1],[1,4],[1,7],
-                    [4,1],[4,4],[4,7],
-                    [7,1],[7,4],[7,7]]   
+#                 d=[[1,1],[1,4],[1,7],
+#                     [4,1],[4,4],[4,7],
+#                     [7,1],[7,4],[7,7]]   
                     
-                if k<len(d):            
-                    if d[k]==[i,j]:
-                        if Center(i,j):
-                            k+=1
-                            rc_check=[]
-                        else:
-                            print("here")
-                            out=False
+#                 if k<len(d):            
+#                     if d[k]==[i,j]:
+#                         if Center(i,j):
+#                             k+=1
+#                             rc_check=[]
+#                         else:
+#                             print("here")
+#                             out=False
                         
                         
                 
                     
             
-            check=[]
-            down=[]
+#             check=[]
+#             down=[]
     
-        return out
-obj=Solution()
+#         return out
+# obj=Solution()
 # board =[["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]
 
 # board=[[".",".",".",".","5",".",".","1","."],
@@ -1715,4 +1715,42 @@ obj=Solution()
 #        [".","6",".",".",".",".","2","8","."],
 #        [".",".",".","4","1","9",".",".","5"],
 #        [".",".",".",".","8",".",".","7","9"]]
-obj.isValidSudoku(board)
+# obj.isValidSudoku(board)
+
+class Solution:
+    def sortVowels(self, s: str) -> str:
+        new=[]
+        result=""
+        count=0
+        char=["A","E","I","O","U","a","e","i","o","u"]
+        
+        for j in range(len(s)):  
+            if s[j] in char:
+                new.append(s[j])
+
+                
+                
+        new.sort()
+        
+        print(new)
+        
+        # for i in new:
+        #     print(ord(i),i)
+        # print(s)
+        
+        for k in range(len(s)):
+            if s[k] in char:
+                result+=new[count]
+                count+=1
+            else:
+                result+=s[k]
+        
+        
+        print(result)
+        return result
+                
+        
+        
+obj=Solution()
+s="lEetcOde"
+obj.sortVowels(s)
