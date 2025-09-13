@@ -1717,40 +1717,72 @@ for (i=0;i<=n:i++):
 #        [".",".",".",".","8",".",".","7","9"]]
 # obj.isValidSudoku(board)
 
-class Solution:
-    def sortVowels(self, s: str) -> str:
-        new=[]
-        result=""
-        count=0
-        char=["A","E","I","O","U","a","e","i","o","u"]
+# class Solution:
+#     def sortVowels(self, s: str) -> str:
+#         new=[]
+#         result=""
+#         count=0
+#         char=["A","E","I","O","U","a","e","i","o","u"]
         
-        for j in range(len(s)):  
-            if s[j] in char:
-                new.append(s[j])
+#         for j in range(len(s)):  
+#             if s[j] in char:
+#                 new.append(s[j])
 
                 
                 
-        new.sort()
+#         new.sort()
         
-        print(new)
+#         print(new)
         
-        # for i in new:
-        #     print(ord(i),i)
-        # print(s)
+#         # for i in new:
+#         #     print(ord(i),i)
+#         # print(s)
         
-        for k in range(len(s)):
-            if s[k] in char:
-                result+=new[count]
-                count+=1
-            else:
-                result+=s[k]
+#         for k in range(len(s)):
+#             if s[k] in char:
+#                 result+=new[count]
+#                 count+=1
+#             else:
+#                 result+=s[k]
         
         
-        print(result)
-        return result
+#         print(result)
+#         return result
                 
         
         
+# obj=Solution()
+# s="lEetcOde"
+# obj.sortVowels(s)
+
+class Solution:
+    def maxFreqSum(self, s: str) -> int:
+        vowels=["a","e","i","o","u"]
+        v={"a":0,"e":0,"i":0,"o":0,"u":0}
+        c={}
+        result=0
+        for i in s:
+            if i in vowels:
+                v[i]+=1
+            
+            elif i in c:
+                c[i]+=1
+
+            else:
+                c[i]=1
+
+        if v and c:
+            result=max(v.values())+max(c.values())
+        elif v:
+            result=max(v.values())
+        elif c:
+            result=max(c.values())
+            
+        print(result)
+        return result
+            
+    
+    
 obj=Solution()
-s="lEetcOde"
-obj.sortVowels(s)
+s = "aeiaeia"
+obj.maxFreqSum(s)
