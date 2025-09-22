@@ -1755,34 +1755,113 @@ for (i=0;i<=n:i++):
 # s="lEetcOde"
 # obj.sortVowels(s)
 
+# class Solution:
+#     def maxFreqSum(self, s: str) -> int:
+#         vowels=["a","e","i","o","u"]
+#         v={"a":0,"e":0,"i":0,"o":0,"u":0}
+#         c={}
+#         result=0
+#         for i in s:
+#             if i in vowels:
+#                 v[i]+=1
+            
+#             elif i in c:
+#                 c[i]+=1
+
+#             else:
+#                 c[i]=1
+
+#         if v and c:
+#             result=max(v.values())+max(c.values())
+#         elif v:
+#             result=max(v.values())
+#         elif c:
+#             result=max(c.values())
+            
+#         print(result)
+#         return result
+            
+    
+    
+# obj=Solution()
+# s = "aeiaeia"
+# obj.maxFreqSum(s)
+
+from typing import List
+import copy
 class Solution:
-    def maxFreqSum(self, s: str) -> int:
-        vowels=["a","e","i","o","u"]
-        v={"a":0,"e":0,"i":0,"o":0,"u":0}
-        c={}
-        result=0
-        for i in s:
-            if i in vowels:
-                v[i]+=1
-            
-            elif i in c:
-                c[i]+=1
+    def spellchecker(self, wordlist: List[str], queries: List[str]) -> List[str]:
+        result=[]
+        new_list=wordlist.copy()
+        
+        
+        for n in range(len(new_list)):
+            temp=new_list[n].lower()
+            new_string =temp.replace("a","*")
+            new_string =new_string.replace("e","*")
+            new_string =new_string.replace("i","*")
+            new_string =new_string.replace("o","*")
+            new_string =new_string.replace("u","*")
+          
+            new_list[n]=new_string
 
-            else:
-                c[i]=1
+     
+        
+        def helper1(i):
+            found=[]
+            for j in wordlist:
+                
+                if queries[i] == j:
+                    result.append(j)
+                    return 1
+                elif queries[i].lower()==j.lower() and found==0:
+                    found.append(j)
+                    
+            if found:
+                print(found)
+                result.append(found[0])
+                return 1
+                
+        # def helper2(i):
+        #     for j in wordlist:
+        #         if queries[i].lower()==j.lower():
+        #             result.append(j)
+        #             return 1
+        
+        def helper3(i):
+            temp=queries[i]
+            temp = temp.lower()
 
-        if v and c:
-            result=max(v.values())+max(c.values())
-        elif v:
-            result=max(v.values())
-        elif c:
-            result=max(c.values())
+            new_string=temp.replace("a","*")
+            new_string=new_string.replace("e","*")
+            new_string=new_string.replace("i","*")
+            new_string=new_string.replace("o","*")
+            new_string=new_string.replace("u","*")
+        
+            temp=new_string
             
+            for k,j in enumerate(new_list):
+                if temp == j:
+                    result.append(wordlist[k])
+                    return 1
+                    
+                    
+        for i in range(len(queries)):
+            if helper1(i):
+                continue
+            # elif helper2(i):
+            #     continue
+            elif helper3(i):
+                continue
+            elif i<=len(queries)-1:
+                result.append("")
+                
         print(result)
         return result
+                    
             
-    
-    
+        
 obj=Solution()
-s = "aeiaeia"
-obj.maxFreqSum(s)
+wordlist = ["zeo","Zuo"]
+queries = ["zuo"]
+obj.spellchecker(wordlist,queries)
