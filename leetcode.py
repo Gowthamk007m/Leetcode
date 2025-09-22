@@ -1786,71 +1786,106 @@ for (i=0;i<=n:i++):
 # obj=Solution()
 # s = "aeiaeia"
 # obj.maxFreqSum(s)
-from typing import List
 
-class Solution:
-    def spellchecker(self, wordlist: List[str], queries: List[str]) -> List[str]:
-        result = []
-        new_list = []
+# class Solution:
+#     def spellchecker(self, wordlist: List[str], queries: List[str]) -> List[str]:
+#         result = []
+#         new_list = []
         
-        # Precompute lowercase + devowel
-        lower_map = {}      # lower -> first occurrence
-        devowel_map = {}    # devoweled -> first occurrence
-        exact_set = set(wordlist)
+#         # Precompute lowercase + devowel
+#         lower_map = {}      # lower -> first occurrence
+#         devowel_map = {}    # devoweled -> first occurrence
+#         exact_set = set(wordlist)
 
-        def devowel(s: str) -> str:
-            s = s.lower()
-            for v in "aeiou":
-                s = s.replace(v, "*")
-            return s
+#         def devowel(s: str) -> str:
+#             s = s.lower()
+#             for v in "aeiou":
+#                 s = s.replace(v, "*")
+#             return s
 
-        for w in wordlist:
-            lw = w.lower()
-            dv = devowel(w)
-            new_list.append(dv)   # keep your original new_list usage
-            if lw not in lower_map:
-                lower_map[lw] = w
-            if dv not in devowel_map:
-                devowel_map[dv] = w
+#         for w in wordlist:
+#             lw = w.lower()
+#             dv = devowel(w)
+#             new_list.append(dv)   # keep your original new_list usage
+#             if lw not in lower_map:
+#                 lower_map[lw] = w
+#             if dv not in devowel_map:
+#                 devowel_map[dv] = w
 
-        def helper1(i):
-            q = queries[i]
-            if q in exact_set:         # exact match
-                result.append(q)
-                return 1
-            lw = q.lower()
-            if lw in lower_map:        # case-insensitive match
-                result.append(lower_map[lw])
-                return 1
+#         def helper1(i):
+#             q = queries[i]
+#             if q in exact_set:         # exact match
+#                 result.append(q)
+#                 return 1
+#             lw = q.lower()
+#             if lw in lower_map:        # case-insensitive match
+#                 result.append(lower_map[lw])
+#                 return 1
 
-        def helper3(i):
-            dv = devowel(queries[i])
-            if dv in devowel_map:      # vowel-error match
-                result.append(devowel_map[dv])
-                return 1
+#         def helper3(i):
+#             dv = devowel(queries[i])
+#             if dv in devowel_map:      # vowel-error match
+#                 result.append(devowel_map[dv])
+#                 return 1
 
-        for i in range(len(queries)):
-            if helper1(i):
-                continue
-            elif helper3(i):
-                continue
-            else:
-                result.append("")
+#         for i in range(len(queries)):
+#             if helper1(i):
+#                 continue
+#             elif helper3(i):
+#                 continue
+#             else:
+#                 result.append("")
 
-        print(result)
-        return result
+#         print(result)
+#         return result
 
                     
         
-import time
-start_time = time.perf_counter()
+# import time
+# start_time = time.perf_counter()
 
-obj=Solution()
-wordlist = ["KiTe","kite","hare","Hare"]
-queries = ["kite","Kite","KiTe","Hare","HARE","Hear","hear","keti","keet","keto"]
-obj.spellchecker(wordlist,queries)
-end_time = time.perf_counter()
-execution_time = end_time - start_time
+# obj=Solution()
+# wordlist = ["KiTe","kite","hare","Hare"]
+# queries = ["kite","Kite","KiTe","Hare","HARE","Hear","hear","keti","keet","keto"]
+# obj.spellchecker(wordlist,queries)
+# end_time = time.perf_counter()
+# execution_time = end_time - start_time
 
-# Print the execution time
-print(f"Execution time: {execution_time:.6f} seconds")
+# # Print the execution time
+# print(f"Execution time: {execution_time:.6f} seconds")
+from typing import List
+
+class MovieRentingSystem:
+
+    def __init__(self, n: int, entries: List[List[int]]):
+        self.n=n
+        self.entries=entries
+        print(n,entries)
+        
+
+    def search(self, movie: int) -> List[int]:
+        pass
+        
+
+    def rent(self, shop: int, movie: int) -> None:
+        pass
+        
+
+    def drop(self, shop: int, movie: int) -> None:
+        pass
+        
+
+    def report(self) -> List[List[int]]:
+        
+        pass
+        
+
+
+# Your MovieRentingSystem object will be instantiated and called as such:
+n=3
+entries=[[0, 1, 5], [0, 2, 6], [0, 3, 7], [1, 1, 4], [1, 2, 7], [2, 1, 5]]
+obj = MovieRentingSystem(n, entries)
+# param_1 = obj.search(movie)
+# obj.rent(shop,movie)
+# obj.drop(shop,movie)
+# param_4 = obj.report()
