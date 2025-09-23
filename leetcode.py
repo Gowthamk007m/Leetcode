@@ -1853,76 +1853,57 @@ for (i=0;i<=n:i++):
 
 # # Print the execution time
 # print(f"Execution time: {execution_time:.6f} seconds")
+
 from typing import List
 import heapq
+from collections import defaultdict
 class MovieRentingSystem:
 
     def __init__(self, n: int, entries: List[List[int]]):
-        self.n=n
-        self.entries=entries
         
+        self.price={}
+        self.available=defaultdict(list)
         self.rented=set()
-        # print(self.n,self.entries)
         
+        for shop,movies,p  in entries:
+            self.price[(shop,movies)]=p
+            self.available[movies].append((p,shop))
+            
+
+        for movie in self.available:
+            self.available[movie].sort()
 
     def search(self, movie: int) -> List[int]:
-        #[shop,movie,price]
-        found=[]
+        result=[]
         
-        for i in self.entries:
-            if (i[0],i[1]) not in self.rented:
-                if i[1]==movie:
-                    found.append(i)
-            
-                
-        
-        sorted_data=sorted(found,key=lambda x:(x[2],x[0]))
-        found=[x[0] for x in sorted_data]
-        
-        return found[0:5]
+        for p,shop in self.available[movie]:
+            if (shop,movie) not in self.rented:
+                result.append(shop)
+            if len(result)==5:
+                break
+
+        return result
         
 
     def rent(self, shop: int, movie: int) -> None:
-        #take from shop 1 movie 1
-        for i in self.entries:
-            if i[0]==shop and i[1]==movie:
-                if (i[0],i[1]) not in self.rented:
-                    # print("rending movie")
-                    self.rented.add((i[0],i[1]))
-                   
-                    # print(self.rented)
-                    break
-                else:
-                    print("not possible")
-            
+        if (shop,movie) in self.price:
+            if (shop,movie) not in self.rented:
+                self.rented.add((shop,movie))
+
             
         
 
     def drop(self, shop: int, movie: int) -> None:
-        for i in self.entries:
-            if i[0]==shop and i[1]==movie:
-                if (i[0],i[1]) in self.rented:
-                    # print("Droping movie")
-                    self.rented.remove((i[0],i[1]))
-                  
-                    # print(self.rented)
-                    break
-                else:
-                    print("not rended in the first place")
-        
+        if (shop,movie) in self.rented:
+            self.rented.remove((shop,movie))
+            
 
     def report(self) -> List[List[int]]:
+        rented_list = [(self.price[(s, m)], s, m) for s, m in self.rented]
         
-        new_list=[]
-        for i,j in self.rented:
-     
-            for k in self.entries:
-                if k[0]==i and k[1]==j:
-                    new_list.append(k)
-            
-        new_list=sorted(new_list,key=lambda x:(x[2],x[0],x[1]))
-        a=[[x[0],x[1]] for x in new_list]
-        return a
+        rented_list.sort()
+        
+        return [[s, m] for _, s, m in rented_list[:5]]
 
 
 # Your MovieRentingSystem object will be instantiated and called as such:
@@ -1934,8 +1915,9 @@ obj.rent(0,1)
 obj.rent(1,2)
 
 
-param_4 = obj.report()
+obj.report()
 obj.drop(1,2)
 
-obj.search(2)
+# obj.search(2)
+
 
